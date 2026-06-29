@@ -1,0 +1,87 @@
+You are an expert financial analyst. Below are several INDEPENDENT (table, question) items. For EACH item, determine the answer using ONLY that item's table and question text. Do not use any tools or read any files — reason solely from what is shown.
+
+For each item, return the row label(s) — copied EXACTLY from that item's "Choices" list — that answer the question. Return ALL labels that apply. If no row satisfies the question, return ["none"].
+
+Answer the question EXACTLY as phrased (honor wording like "Pareto-optimal", "maximizing both", "at least", "under", "lowest/highest", or "exclude total/subtotal rows"). Do NOT assume any convention the question does not state.
+
+Return ONLY a JSON object mapping each card_id (as a string) to an array of labels. Example: {"0": ["Net receivables"], "3": ["none"], "7": ["Alpha","Beta"]}
+
+
+===== ITEMS =====
+
+
+[card_id=5]  (task family: best_under_constraint)
+Question: Which line item has the highest value in Facility costs while keeping value in Total of at least 6114?
+Choices (return labels from this list only): ['Balance payable as at June 30, 2017', 'Accruals and adjustments', 'Cash payments', 'Foreign exchange and other non-cash adjustments', 'Balance payable as at June 30, 2018', 'Accruals and adjustments', 'Cash payments', 'Foreign exchange and other non-cash adjustments', 'Balance payable as at June 30, 2019']
+Table:
+| Fiscal 2017 Restructuring Plan | Workforce reduction | Facility costs | Total |
+| --- | --- | --- | --- |
+| Balance payable as at June 30, 2017 | 10045 | 1369 | 11414 |
+| Accruals and adjustments | 3432 | 3775 | 7207 |
+| Cash payments | -12342 | -1627 | -13969 |
+| Foreign exchange and other non-cash adjustments | 455 | -86 | 369 |
+| Balance payable as at June 30, 2018 | 1590 | 3431 | 5021 |
+| Accruals and adjustments | -254 | 1152 | 898 |
+| Cash payments | -213 | -1290 | -1503 |
+| Foreign exchange and other non-cash adjustments | -77 | -344 | -421 |
+| Balance payable as at June 30, 2019 | 1046 | 2949 | 3995 |
+
+
+[card_id=11]  (task family: best_under_constraint)
+Question: Which line item has the highest value in External valuation % while keeping value in Internal valuation % under 67.5?
+Choices (return labels from this list only): ['Leasehold', 'Freehold', 'Leasehold', 'Freehold']
+Table:
+| category | External valuation % | Internal valuation % |
+| --- | --- | --- |
+| Leasehold | 23 | 77 |
+| Freehold | 38 | 62 |
+| Leasehold | 60 | 40 |
+| Freehold | 27 | 73 |
+
+
+[card_id=17]  (task family: threshold_filter)
+Question: Which line items have value in Internal valuation % under 41.48 and value in External valuation % of at least 25?
+Choices (return labels from this list only): ['Leasehold', 'Freehold', 'Leasehold', 'Freehold']
+Table:
+| category | External valuation % | Internal valuation % |
+| --- | --- | --- |
+| Leasehold | 23 | 77 |
+| Freehold | 38 | 62 |
+| Leasehold | 60 | 40 |
+| Freehold | 27 | 73 |
+
+
+[card_id=23]  (task family: threshold_filter)
+Question: Which line items have value in October 31, 2017 under 11373.5 and value in October 31, 2018 of at least 60992?
+Choices (return labels from this list only): ['Net income', 'Distributed and undistributed (earnings) to unvested restricted', 'Distributed and undistributed earnings to common shareholders -- Basic', 'Weighted average shares outstanding — Basic', 'Weighted average shares outstanding — Diluted', 'Earnings per common share — Basic', 'Earnings per common share — Diluted']
+Table:
+| category | October 31, 2019 | October 31, 2018 | October 31, 2017 |
+| --- | --- | --- | --- |
+| Net income | 53294 | 61431 | 279745 |
+| Distributed and undistributed (earnings) to unvested restricted | -778 | -878 | -4285 |
+| Distributed and undistributed earnings to common shareholders -- Basic | 52516 | 60553 | 275460 |
+| Weighted average shares outstanding — Basic | 21829 | 22429 | 22393 |
+| Weighted average shares outstanding — Diluted | 21829 | 22429 | 22393 |
+| Earnings per common share — Basic | 2.41 | 2.7 | 12.3 |
+| Earnings per common share — Diluted | 2.41 | 2.7 | 12.3 |
+
+
+[card_id=29]  (task family: tradeoff_summary)
+Question: Among these periods, which are Pareto-optimal when maximizing both Taiwan and Other Asia Pacific?
+Choices (return labels from this list only): ['2019', '2018', '2017']
+Table:
+| For the year ended | United States | Mainland China (excluding Hong Kong) | Taiwan | Hong Kong | Other Asia Pacific | Japan | Other | period |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2019 | 12451 | 3595 | 2703 | 1614 | 1032 | 958 | 1053 | 23406 |
+| 2018 | 17116 | 3607 | 3918 | 1761 | 1458 | 1265 | 1266 | 30391 |
+| 2017 | 11359 | 1539 | 2892 | 1429 | 1078 | 1042 | 983 | 20322 |
+
+
+[card_id=35]  (task family: tradeoff_summary)
+Question: Among these periods, which are Pareto-optimal when maximizing both Operating activities and Net increase (decrease) in cash and cash equivalents?
+Choices (return labels from this list only): ['2019', '2018']
+Table:
+| category | Operating activities | Financing activities | Net increase (decrease) in cash and cash equivalents |
+| --- | --- | --- | --- |
+| 2019 | -618 | 1389 | 771 |
+| 2018 | -3908 | 1779 | -2129 |

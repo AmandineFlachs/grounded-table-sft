@@ -1,0 +1,85 @@
+You are an expert financial analyst. Below are several INDEPENDENT (table, question) items. For EACH item, determine the answer using ONLY that item's table and question text. Do not use any tools or read any files — reason solely from what is shown.
+
+For each item, return the row label(s) — copied EXACTLY from that item's "Choices" list — that answer the question. Return ALL labels that apply. If no row satisfies the question, return ["none"].
+
+Answer the question EXACTLY as phrased (honor wording like "Pareto-optimal", "maximizing both", "at least", "under", "lowest/highest", or "exclude total/subtotal rows"). Do NOT assume any convention the question does not state.
+
+Return ONLY a JSON object mapping each card_id (as a string) to an array of labels. Example: {"0": ["Net receivables"], "3": ["none"], "7": ["Alpha","Beta"]}
+
+
+===== ITEMS =====
+
+
+[card_id=3]  (task family: best_under_constraint)
+Question: Which line item has the lowest value in 2019 £m while keeping value in 2018 £m of at least 12.7? Exclude any total or subtotal rows.
+Choices (return labels from this list only): ['UK', 'Ireland', 'Total']
+Table:
+| category | Note | 2019 £m | 2018 £m |
+| --- | --- | --- | --- |
+| UK |  | 24.5 | 24.9 |
+| Ireland |  | 0.4 | 0.5 |
+| Total |  | 24.9 | 25.4 |
+
+
+[card_id=9]  (task family: best_under_constraint)
+Question: Which period has the highest Other foreign borrowings(1) while keeping Total debt(2) under 3654.75?
+Choices (return labels from this list only): ['December 31, 2019 Carrying Amount', 'Fair Value', 'December 31, 2018 Carrying Amount', 'Fair Value_1']
+Table:
+| (In millions) | Term Loan A Facility due July 2022 | Term Loan A Facility due July 2023(1) | 6.50% Senior Notes due December 2020 | 4.875% Senior Notes due December 2022 | 5.25% Senior Notes due April 2023 | 4.50% Senior Notes due September 2023(1) | 5.125% Senior Notes due December 2024 | 5.50% Senior Notes due September 2025 | 4.00% Senior Notes due December 2027 | 6.875% Senior Notes due July 2033 | Other foreign borrowings(1) | Other domestic borrowings | Total debt(2) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| December 31, 2019 Carrying Amount | 474.6 | 223.8 |  | 421.9 | 422 | 445.6 | 421.9 | 397.4 | 420.4 | 445.7 | 12.1 | 89 | 3774.4 |
+| Fair Value | 474.6 | 223.8 |  | 450.1 | 454.1 | 509.5 | 458.9 | 441.2 | 431.5 | 528.8 | 12.4 | 89 | 4073.9 |
+| December 31, 2018 Carrying Amount |  | 222.2 | 424 | 421.1 | 421.2 | 454.9 | 421.3 | 397.1 |  | 445.5 | 98.5 | 168.4 | 3474.2 |
+| Fair Value_1 |  | 222.2 | 440.1 | 421.2 | 424.5 | 489.9 | 419.8 | 394.8 |  | 453.4 | 99.2 | 170 | 3535.1 |
+
+
+[card_id=15]  (task family: threshold_filter)
+Question: Which periods have 2024 of at least 211.3?
+Choices (return labels from this list only): ['Operating Leases', 'Finance Leases']
+Table:
+| category | 2020 | 2021 | 2022 | 2023 | 2024 | Thereafter | Total lease payments | Less: interest | Total | Less: current portion | Long-term portion |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Operating Leases | 460 | 361 | 308 | 265 | 194 | 686 | 2274 | -516 | 1758 | -416 | 1342 |
+| Finance Leases | 47 | 28 | 22 | 22 | 21 | 170 | 310 | -90 | 220 | -35 | 185 |
+
+
+[card_id=21]  (task family: threshold_filter)
+Question: Which periods have Risk-free interest rate of at least 2.89 and Expected term (years) of at least 3.65?
+Choices (return labels from this list only): ['2019', '2018', '2017']
+Table:
+| category | Risk-free interest rate | Expected term (years) | Expected volatility | Target price |
+| --- | --- | --- | --- | --- |
+| 2019 | 2.8 | 3.9 | 51.9 | 53.87 |
+| 2018 | 2.3 | 3.4 | 45.8 | 98.99 |
+| 2017 | 1.9 | 7 | 32.3 | 67.39 |
+
+
+[card_id=27]  (task family: tradeoff_summary)
+Question: Among these line items, which are Pareto-optimal when maximizing both value in 2018 and value in 2019? Exclude any total or subtotal rows.
+Choices (return labels from this list only): ['Property, plant and equipment', 'Prepaid and other assets', 'Total deferred tax liabilities', 'Accrued expenses and accounts receivable', 'Inventory', 'Compensation on restricted stock', 'State income tax credits', 'Other', 'Valuation allowance', 'Net operating loss', 'Total deferred tax assets', 'Net deferred tax liabilities']
+Table:
+| category | 2019 | 2018 |
+| --- | --- | --- |
+| Property, plant and equipment | 148505 | 88351 |
+| Prepaid and other assets | 1911 | 1751 |
+| Total deferred tax liabilities | 150416 | 90102 |
+| Accrued expenses and accounts receivable | 8172 | 7814 |
+| Inventory | 1155 | 2862 |
+| Compensation on restricted stock | 7528 | 8280 |
+| State income tax credits | 9333 | 12235 |
+| Other | 1272 | 654 |
+| Valuation allowance | -5637 | -11017 |
+| Net operating loss | 54461 | 6481 |
+| Total deferred tax assets | 76284 | 27309 |
+| Net deferred tax liabilities | 74132 | 62793 |
+
+
+[card_id=33]  (task family: tradeoff_summary)
+Question: Among these periods, which are Pareto-optimal when maximizing both Distributed and undistributed earnings to common shareholders -- Basic and Earnings per common share — Diluted?
+Choices (return labels from this list only): ['October 31, 2019', 'October 31, 2018', 'October 31, 2017']
+Table:
+| category | Net income | Distributed and undistributed (earnings) to unvested restricted | Distributed and undistributed earnings to common shareholders -- Basic | Weighted average shares outstanding — Basic | Weighted average shares outstanding — Diluted | Earnings per common share — Basic | Earnings per common share — Diluted |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| October 31, 2019 | 53294 | -778 | 52516 | 21829 | 21829 | 2.41 | 2.41 |
+| October 31, 2018 | 61431 | -878 | 60553 | 22429 | 22429 | 2.7 | 2.7 |
+| October 31, 2017 | 279745 | -4285 | 275460 | 22393 | 22393 | 12.3 | 12.3 |

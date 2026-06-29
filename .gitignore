@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+.venv-train/
+venv/
+env/
+
+# Data artifacts: processed JSONLs are regenerable, but ship the eval inputs the demo/re-scores need
+data/processed/*.jsonl
+!data/processed/eval_dev.v0_1_0.jsonl
+!data/processed/eval_test.v0_1_0.jsonl
+!data/processed/realtable_eval_verified.v0_1_0.jsonl
+
+# Results: ignored by default; publish the demo + headline metrics + the independent anchor so the
+# no-GPU demo and the doc links work from a fresh clone (logs, weights, intermediates stay ignored)
+results/*
+!results/p3_4b_exec_TEST.json
+!results/p3_4b_exec_TEST_verified.json
+!results/p3_4b_gate.json
+!results/p3_4b_grounded_constructed.json
+!results/p3_baseline_4b_dev.json
+!results/demo/
+!results/anchor/
+
+# Model weights (large; retrain via docs/training_env.md)
+models/
+
+# Local promo / social-media visuals - staging for sharing, not part of the public repo
+promo/
+
+# Personal scheduling helpers (machine-specific absolute paths; keep local, don't publish)
+scripts/register_seed_today.ps1
+scripts/run_seed_window.cmd
+
+# Verbose internal development log (the full TASKS.md history; kept local, TASKS.md is the public one)
+devlog.md
+
+# Internal forward-plan: effort estimates + dated working notes (redundant with RESULTS.md/TASKS.md; local)
+PLAN.md
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

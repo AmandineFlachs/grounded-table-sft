@@ -1,0 +1,80 @@
+You are an expert financial analyst. Below are several INDEPENDENT (table, question) items. For EACH item, determine the answer using ONLY that item's table and question text. Do not use any tools or read any files — reason solely from what is shown.
+
+For each item, return the row label(s) — copied EXACTLY from that item's "Choices" list — that answer the question. Return ALL labels that apply. If no row satisfies the question, return ["none"].
+
+Answer the question EXACTLY as phrased (honor wording like "Pareto-optimal", "maximizing both", "at least", "under", "lowest/highest", or "exclude total/subtotal rows"). Do NOT assume any convention the question does not state.
+
+Return ONLY a JSON object mapping each card_id (as a string) to an array of labels. Example: {"0": ["Net receivables"], "3": ["none"], "7": ["Alpha","Beta"]}
+
+
+===== ITEMS =====
+
+
+[card_id=1]  (task family: best_under_constraint)
+Question: Which period has the lowest Accrued expenses and accounts receivable while keeping Net deferred tax liabilities of at least 68462.5?
+Choices (return labels from this list only): ['2019', '2018']
+Table:
+| category | Property, plant and equipment | Prepaid and other assets | Total deferred tax liabilities | Accrued expenses and accounts receivable | Inventory | Compensation on restricted stock | State income tax credits | Other | Valuation allowance | Net operating loss | Total deferred tax assets | Net deferred tax liabilities |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2019 | 148505 | 1911 | 150416 | 8172 | 1155 | 7528 | 9333 | 1272 | -5637 | 54461 | 76284 | 74132 |
+| 2018 | 88351 | 1751 | 90102 | 7814 | 2862 | 8280 | 12235 | 654 | -11017 | 6481 | 27309 | 62793 |
+
+
+[card_id=7]  (task family: best_under_constraint)
+Question: Which line item has the highest value in 2017 while keeping value in 2019 under -122.7? Exclude any total or subtotal rows.
+Choices (return labels from this list only): ['Transportation Solutions', 'Industrial Solutions', 'Communications Solutions', 'Total segment assets(1)', 'Other current assets', 'Other non-current assets', 'Total assets']
+Table:
+| category | 2019 | 2018 | 2017 |
+| --- | --- | --- | --- |
+| Transportation Solutions | 4781 | 4707 | 4084 |
+| Industrial Solutions | 2100 | 2049 | 1909 |
+| Communications Solutions | 849 | 959 | 951 |
+| Total segment assets(1) | 7730 | 7715 | 6944 |
+| Other current assets | 1398 | 1981 | 2141 |
+| Other non-current assets | 10566 | 10690 | 10318 |
+| Total assets | 19694 | 20386 | 19403 |
+
+
+[card_id=13]  (task family: threshold_filter)
+Question: Which line items have value in 2019 of at least 1080 and value in 2018 under -175?
+Choices (return labels from this list only): ['Operating activities', 'Financing activities', 'Net increase (decrease) in cash and cash equivalents']
+Table:
+| category | 2019 | 2018 |
+| --- | --- | --- |
+| Operating activities | -618 | -3908 |
+| Financing activities | 1389 | 1779 |
+| Net increase (decrease) in cash and cash equivalents | 771 | -2129 |
+
+
+[card_id=19]  (task family: threshold_filter)
+Question: Which line items have value in 2018 under -0.23 and value in 2019 of at least 0.1?
+Choices (return labels from this list only): ['Net investment in finance lease', 'Amounts owed by members of Peel', 'Amounts owed to members of Peel']
+Table:
+| £m | 2019 | 2018 |
+| --- | --- | --- |
+| Net investment in finance lease | 0.8 | 1.2 |
+| Amounts owed by members of Peel | 0.3 | 0.3 |
+| Amounts owed to members of Peel | -0.1 | -0.1 |
+
+
+[card_id=25]  (task family: tradeoff_summary)
+Question: Among these line items, which are Pareto-optimal when maximizing both value in June 1, 2019 and value in June 3, 2017?
+Choices (return labels from this list only): ['Net income (loss) attributable to Cal-Maine Foods, Inc. - (in thousands)', 'Gross profit (in thousands)', 'Net average shell egg selling price (rounded)', 'Average Urner Barry Spot Egg Market Quotations 1', 'Feed cost per dozen produced']
+Table:
+| Fiscal Year ended | June 1, 2019 | June 2, 2018 | June 3, 2017 |
+| --- | --- | --- | --- |
+| Net income (loss) attributable to Cal-Maine Foods, Inc. - (in thousands) | 54229 | 125932 | -74278 |
+| Gross profit (in thousands) | 222859 | 361046 | 45550 |
+| Net average shell egg selling price (rounded) | 1.27 | 1.4 | 1.01 |
+| Average Urner Barry Spot Egg Market Quotations 1 | 1.23 | 1.49 | 0.85 |
+| Feed cost per dozen produced | 0.415 | 0.394 | 0.399 |
+
+
+[card_id=31]  (task family: tradeoff_summary)
+Question: Among these periods, which are Pareto-optimal when maximizing both Other and Net operating loss carryforward?
+Choices (return labels from this list only): ['2019', '2018']
+Table:
+| (in thousands) | Allowance for doubtful accounts | Foreign tax credit carryforward | Depreciation | Deferred revenue | Accrued compensation | Inventory reserves | Accrued warranty | Net operating loss carryforward | Accrued restructuring | Intangibles and goodwill | Other | Gross deferred tax assets | Valuation allowance | Net deferred income tax assets | Intangibles and goodwill_1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2019 | 26 | 810 | 173 | 425 | 412 | 757 | 33 | 35024 |  | 272 | 839 | 38771 | -38771 |  |  |
+| 2018 | 24 | 812 | 227 | 675 | 358 | 948 | 77 | 34924 | 16 |  | 660 | 38721 | -37103 | 1618 | -1618 |

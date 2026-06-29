@@ -1,0 +1,83 @@
+You are an expert financial analyst. Below are several INDEPENDENT (table, question) items. For EACH item, determine the answer using ONLY that item's table and question text. Do not use any tools or read any files — reason solely from what is shown.
+
+For each item, return the row label(s) — copied EXACTLY from that item's "Choices" list — that answer the question. Return ALL labels that apply. If no row satisfies the question, return ["none"].
+
+Answer the question EXACTLY as phrased (honor wording like "Pareto-optimal", "maximizing both", "at least", "under", "lowest/highest", or "exclude total/subtotal rows"). Do NOT assume any convention the question does not state.
+
+Return ONLY a JSON object mapping each card_id (as a string) to an array of labels. Example: {"0": ["Net receivables"], "3": ["none"], "7": ["Alpha","Beta"]}
+
+
+===== ITEMS =====
+
+
+[card_id=2]  (task family: best_under_constraint)
+Question: Which line item has the lowest value in 2019 over 2018 while keeping value in Years Ended 2018 under 1.12202e+06?
+Choices (return labels from this list only): ['Modules', 'Systems .', 'Net sales .']
+Table:
+| (Dollars in thousands) | 2019 | Years Ended 2018 | 2017 | 2019 over 2018 | Change | 2018 over 2017 | col_7 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Modules | 1460116 | 502001 | 806398 | 958115 | 191 | -304397 | -38 |
+| Systems . | 1603001 | 1742043 | 2134926 | -139042 | -8 | -392883 | -18 |
+| Net sales . | 3063117 | 2244044 | 2941324 | 819073 | 36 | -697280 | -24 |
+
+
+[card_id=8]  (task family: best_under_constraint)
+Question: Which period has the lowest Cash payments_1 while keeping Accruals and adjustments of at least 3603.5? Exclude any total or subtotal rows.
+Choices (return labels from this list only): ['Workforce reduction', 'Facility costs', 'Total']
+Table:
+| Fiscal 2017 Restructuring Plan | Balance payable as at June 30, 2017 | Accruals and adjustments | Cash payments | Foreign exchange and other non-cash adjustments | Balance payable as at June 30, 2018 | Accruals and adjustments_1 | Cash payments_1 | Foreign exchange and other non-cash adjustments_1 | Balance payable as at June 30, 2019 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Workforce reduction | 10045 | 3432 | -12342 | 455 | 1590 | -254 | -213 | -77 | 1046 |
+| Facility costs | 1369 | 3775 | -1627 | -86 | 3431 | 1152 | -1290 | -344 | 2949 |
+| Total | 11414 | 7207 | -13969 | 369 | 5021 | 898 | -1503 | -421 | 3995 |
+
+
+[card_id=14]  (task family: threshold_filter)
+Question: Which line items have value in Income (loss) from vessel operations 2019 of at least 163962 and value in 2018 of at least 481210?
+Choices (return labels from this list only): ['Teekay LNG', 'Teekay Tankers', 'Teekay Parent', 'Elimination of intercompany (1)', 'Teekay Corporation Consolidated']
+Table:
+| (in thousands of U.S. dollars) | Revenues 2019 | 2018 | Income (loss) from vessel operations 2019 | 2018_1 |
+| --- | --- | --- | --- | --- |
+| Teekay LNG | 601256 | 510762 | 299253 | 148599 |
+| Teekay Tankers | 943917 | 776493 | 123883 | 7204 |
+| Teekay Parent | 413806 | 451659 | -219094 | 8516 |
+| Elimination of intercompany (1) | -13588 | -10426 |  |  |
+| Teekay Corporation Consolidated | 1945391 | 1728488 | 204042 | 164319 |
+
+
+[card_id=20]  (task family: threshold_filter)
+Question: Which periods have Other current assets under 1427.72?
+Choices (return labels from this list only): ['2019', '2018', '2017']
+Table:
+| category | Transportation Solutions | Industrial Solutions | Communications Solutions | Total segment assets(1) | Other current assets | Other non-current assets | Total assets |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 2019 | 4781 | 2100 | 849 | 7730 | 1398 | 10566 | 19694 |
+| 2018 | 4707 | 2049 | 959 | 7715 | 1981 | 10690 | 20386 |
+| 2017 | 4084 | 1909 | 951 | 6944 | 2141 | 10318 | 19403 |
+
+
+[card_id=26]  (task family: tradeoff_summary)
+Question: Among these periods, which are Pareto-optimal when maximizing both 5.25% Senior Notes due April 2023 and 6.875% Senior Notes due July 2033?
+Choices (return labels from this list only): ['December 31, 2019 Carrying Amount', 'Fair Value', 'December 31, 2018 Carrying Amount', 'Fair Value_1']
+Table:
+| (In millions) | Term Loan A Facility due July 2022 | Term Loan A Facility due July 2023(1) | 6.50% Senior Notes due December 2020 | 4.875% Senior Notes due December 2022 | 5.25% Senior Notes due April 2023 | 4.50% Senior Notes due September 2023(1) | 5.125% Senior Notes due December 2024 | 5.50% Senior Notes due September 2025 | 4.00% Senior Notes due December 2027 | 6.875% Senior Notes due July 2033 | Other foreign borrowings(1) | Other domestic borrowings | Total debt(2) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| December 31, 2019 Carrying Amount | 474.6 | 223.8 |  | 421.9 | 422 | 445.6 | 421.9 | 397.4 | 420.4 | 445.7 | 12.1 | 89 | 3774.4 |
+| Fair Value | 474.6 | 223.8 |  | 450.1 | 454.1 | 509.5 | 458.9 | 441.2 | 431.5 | 528.8 | 12.4 | 89 | 4073.9 |
+| December 31, 2018 Carrying Amount |  | 222.2 | 424 | 421.1 | 421.2 | 454.9 | 421.3 | 397.1 |  | 445.5 | 98.5 | 168.4 | 3474.2 |
+| Fair Value_1 |  | 222.2 | 440.1 | 421.2 | 424.5 | 489.9 | 419.8 | 394.8 |  | 453.4 | 99.2 | 170 | 3535.1 |
+
+
+[card_id=32]  (task family: tradeoff_summary)
+Question: Among these line items, which are Pareto-optimal when maximizing both value in 2019 and value in 2018?
+Choices (return labels from this list only): ['Land', 'Machinery and equipment', 'Office, computer and research equipment', 'Leasehold improvements', 'Land, property and equipment, gross', 'Less accumulated depreciation and amortization', 'Land, property and equipment, net']
+Table:
+| (in thousands) | 2019 | 2018 |
+| --- | --- | --- |
+| Land | 672 | 672 |
+| Machinery and equipment | 1372 | 1296 |
+| Office, computer and research equipment | 5267 | 5175 |
+| Leasehold improvements | 798 | 1238 |
+| Land, property and equipment, gross | 8109 | 8381 |
+| Less accumulated depreciation and amortization | -6811 | -6780 |
+| Land, property and equipment, net | 1298 | 1601 |

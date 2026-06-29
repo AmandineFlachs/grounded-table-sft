@@ -1,0 +1,20 @@
+{
+  "n": 36,
+  "agree": 36,
+  "by_type": {
+    "best_under_constraint": {
+      "agree": 12,
+      "n": 12
+    },
+    "threshold_filter": {
+      "agree": 12,
+      "n": 12
+    },
+    "tradeoff_summary": {
+      "agree": 12,
+      "n": 12
+    }
+  },
+  "disagreements": [],
+  "note": "oracle = blind independent-LLM annotation from raw table + question only; NOT human-verified; disagreements pending human adjudication"
+}

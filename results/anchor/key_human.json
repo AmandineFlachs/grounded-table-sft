@@ -1,0 +1,392 @@
+[
+  {
+    "card_id": 0,
+    "example_id": "tatqa_0170_rows_best_under_constraint_normal",
+    "gold_rows": [
+      0
+    ],
+    "gold_label_set": [
+      "expected loss rate"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 1,
+    "example_id": "tatqa_0180_cols_best_under_constraint_normal",
+    "gold_rows": [
+      0
+    ],
+    "gold_label_set": [
+      "2019"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 2,
+    "example_id": "tatqa_0069_rows_best_under_constraint_normal",
+    "gold_rows": [
+      0
+    ],
+    "gold_label_set": [
+      "modules"
+    ],
+    "engine_ok": false
+  },
+  {
+    "card_id": 3,
+    "example_id": "tatqa_0124_rows_best_under_constraint_normal",
+    "gold_rows": [
+      0
+    ],
+    "gold_label_set": [
+      "uk"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 4,
+    "example_id": "tatqa_0199_cols_best_under_constraint_empty",
+    "gold_rows": [],
+    "gold_label_set": [
+      "none"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 5,
+    "example_id": "tatqa_0195_rows_best_under_constraint_normal",
+    "gold_rows": [
+      1
+    ],
+    "gold_label_set": [
+      "accruals and adjustments"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 6,
+    "example_id": "tatqa_0173_rows_best_under_constraint_empty",
+    "gold_rows": [],
+    "gold_label_set": [
+      "none"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 7,
+    "example_id": "tatqa_0147_rows_best_under_constraint_empty",
+    "gold_rows": [],
+    "gold_label_set": [
+      "none"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 8,
+    "example_id": "tatqa_0195_cols_best_under_constraint_normal",
+    "gold_rows": [
+      1
+    ],
+    "gold_label_set": [
+      "facility costs"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 9,
+    "example_id": "tatqa_0155_cols_best_under_constraint_normal",
+    "gold_rows": [
+      3
+    ],
+    "gold_label_set": [
+      "fair value_1"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 10,
+    "example_id": "tatqa_0114_rows_best_under_constraint_normal",
+    "gold_rows": [
+      0
+    ],
+    "gold_label_set": [
+      "americas"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 11,
+    "example_id": "tatqa_0198_rows_best_under_constraint_normal",
+    "gold_rows": [
+      2
+    ],
+    "gold_label_set": [
+      "leasehold"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 12,
+    "example_id": "tatqa_0105_cols_threshold_filter_empty",
+    "gold_rows": [],
+    "gold_label_set": [
+      "none"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 13,
+    "example_id": "tatqa_0132_rows_threshold_filter_normal",
+    "gold_rows": [],
+    "gold_label_set": [
+      "none"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 14,
+    "example_id": "tatqa_0092_rows_threshold_filter_normal",
+    "gold_rows": [
+      0,
+      4
+    ],
+    "gold_label_set": [
+      "teekay corporation consolidated",
+      "teekay lng"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 15,
+    "example_id": "tatqa_0219_cols_threshold_filter_empty",
+    "gold_rows": [],
+    "gold_label_set": [
+      "none"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 16,
+    "example_id": "tatqa_0122_rows_threshold_filter_normal",
+    "gold_rows": [
+      0,
+      1
+    ],
+    "gold_label_set": [
+      "2020 – 2024",
+      "2025 – 2029"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 17,
+    "example_id": "tatqa_0198_rows_threshold_filter_near_threshold",
+    "gold_rows": [
+      2
+    ],
+    "gold_label_set": [
+      "leasehold"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 18,
+    "example_id": "tatqa_0210_rows_threshold_filter_near_threshold",
+    "gold_rows": [
+      1,
+      2
+    ],
+    "gold_label_set": [
+      "orders",
+      "revenue"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 19,
+    "example_id": "tatqa_0105_rows_threshold_filter_empty",
+    "gold_rows": [],
+    "gold_label_set": [
+      "none"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 20,
+    "example_id": "tatqa_0147_cols_threshold_filter_near_threshold",
+    "gold_rows": [
+      0
+    ],
+    "gold_label_set": [
+      "2019"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 21,
+    "example_id": "tatqa_0089_cols_threshold_filter_empty",
+    "gold_rows": [],
+    "gold_label_set": [
+      "none"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 22,
+    "example_id": "tatqa_0148_rows_threshold_filter_normal",
+    "gold_rows": [
+      1,
+      2
+    ],
+    "gold_label_set": [
+      "interest expense",
+      "interest income"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 23,
+    "example_id": "tatqa_0188_rows_threshold_filter_near_threshold",
+    "gold_rows": [],
+    "gold_label_set": [
+      "none"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 24,
+    "example_id": "tatqa_0204_rows_tradeoff_summary_normal",
+    "gold_rows": [
+      11
+    ],
+    "gold_label_set": [
+      "gross deferred tax assets"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 25,
+    "example_id": "tatqa_0094_rows_tradeoff_summary_normal",
+    "gold_rows": [
+      1
+    ],
+    "gold_label_set": [
+      "gross profit (in thousands)"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 26,
+    "example_id": "tatqa_0155_cols_tradeoff_summary_normal",
+    "gold_rows": [
+      1
+    ],
+    "gold_label_set": [
+      "fair value"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 27,
+    "example_id": "tatqa_0180_rows_tradeoff_summary_normal",
+    "gold_rows": [
+      0
+    ],
+    "gold_label_set": [
+      "property, plant and equipment"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 28,
+    "example_id": "tatqa_0148_rows_tradeoff_summary_normal",
+    "gold_rows": [
+      0,
+      3
+    ],
+    "gold_label_set": [
+      "% change",
+      "foreign exchange (expense) income and other, net"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 29,
+    "example_id": "tatqa_0221_cols_tradeoff_summary_normal",
+    "gold_rows": [
+      1
+    ],
+    "gold_label_set": [
+      "2018"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 30,
+    "example_id": "tatqa_0114_rows_tradeoff_summary_normal",
+    "gold_rows": [
+      3
+    ],
+    "gold_label_set": [
+      ""
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 31,
+    "example_id": "tatqa_0204_cols_tradeoff_summary_normal",
+    "gold_rows": [
+      0
+    ],
+    "gold_label_set": [
+      "2019"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 32,
+    "example_id": "tatqa_0192_rows_tradeoff_summary_normal",
+    "gold_rows": [
+      4
+    ],
+    "gold_label_set": [
+      "land, property and equipment, gross"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 33,
+    "example_id": "tatqa_0188_cols_tradeoff_summary_normal",
+    "gold_rows": [
+      2
+    ],
+    "gold_label_set": [
+      "october 31, 2017"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 34,
+    "example_id": "tatqa_0199_cols_tradeoff_summary_normal",
+    "gold_rows": [
+      0,
+      2
+    ],
+    "gold_label_set": [
+      "2018 number of shares",
+      "2019 number of shares"
+    ],
+    "engine_ok": true
+  },
+  {
+    "card_id": 35,
+    "example_id": "tatqa_0132_cols_tradeoff_summary_normal",
+    "gold_rows": [
+      0
+    ],
+    "gold_label_set": [
+      "2019"
+    ],
+    "engine_ok": true
+  }
+]

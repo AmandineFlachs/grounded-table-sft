@@ -1,0 +1,9 @@
+{
+  "_comment": "Synthetic generator configuration. Ranges/precision per metric live in src/synthetic_generator.py:METRIC_SPECS. These are the structural knobs.",
+  "min_rows": 3,
+  "max_rows": 8,
+  "min_metrics": 2,
+  "max_metrics": 5,
+  "hard_case_fraction": 0.35,
+  "eval_fraction": 0.2
+}

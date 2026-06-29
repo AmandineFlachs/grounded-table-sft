@@ -1,0 +1,2096 @@
+{
+  "model": "Qwen/Qwen3-4B",
+  "adapter": null,
+  "dataset": "data/processed/eval_dev.v0_1_0.jsonl",
+  "n": 190,
+  "metrics": {
+    "parsed": 145,
+    "schema_valid": 144,
+    "answer_correct": 52,
+    "grounded": 0,
+    "valid": 0
+  },
+  "by_type": {
+    "best_under_constraint": [
+      63,
+      19
+    ],
+    "threshold_filter": [
+      66,
+      13
+    ],
+    "tradeoff_summary": [
+      61,
+      20
+    ]
+  },
+  "failures": {
+    "cells_exist": 144,
+    "answer_correct": 92,
+    "numeric_comparisons_correct": 17,
+    "pareto_frontier_correct": 34,
+    "threshold_satisfaction": 46,
+    "unparseable": 45,
+    "validator_error": 1,
+    "relevance": 2
+  },
+  "details": [
+    {
+      "example_id": "tatqa_0062_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0062_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0062_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0062_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0062_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0062_...hreshold_filter_empty'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0065_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0065_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0065_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0065_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0065_...der_constraint_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0065_cols_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0065_...filter_near_threshold'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0065_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0067_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0067_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: unbalanced JSON object in output"
+    },
+    {
+      "example_id": "tatqa_0067_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": false,
+      "error": "parse: unbalanced JSON object in output"
+    },
+    {
+      "example_id": "tatqa_0067_cols_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0067_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0067_...reshold_filter_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0067_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0072_rows_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0072_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0072_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0072_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0072_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0072_...hreshold_filter_empty'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0072_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0076_rows_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0076_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0076_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": false,
+      "error": "parse: unbalanced JSON object in output"
+    },
+    {
+      "example_id": "tatqa_0076_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0076_...nder_constraint_empty'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0076_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0077_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0077_...hreshold_filter_empty'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0079_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0079_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: unbalanced JSON object in output"
+    },
+    {
+      "example_id": "tatqa_0079_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0079_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0079_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0079_...reshold_filter_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0079_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0080_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0080_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0080_...reshold_filter_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0080_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0080_cols_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0080_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0081_rows_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": false,
+      "error": "parse: 'Breakup of revenue growth' is not in list"
+    },
+    {
+      "example_id": "tatqa_0081_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 'Breakup of revenue growth' is not in list"
+    },
+    {
+      "example_id": "tatqa_0081_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": false,
+      "error": "parse: 'Breakup of revenue growth' is not in list"
+    },
+    {
+      "example_id": "tatqa_0081_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "validator_error"
+      ],
+      "error": "validate: TypeError: can only concatenate str (not \"float\") to str"
+    },
+    {
+      "example_id": "tatqa_0081_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0081_...reshold_filter_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0081_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0082_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0082_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0082_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0082_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0082_...nder_constraint_empty'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0082_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0082_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0087_rows_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0087_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0087_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0087_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0087_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction",
+        "relevance"
+      ]
+    },
+    {
+      "example_id": "tatqa_0087_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0093_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0093_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0093_...reshold_filter_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0093_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0093_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0093_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0093_...reshold_filter_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0093_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0099_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0099_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0099_...hreshold_filter_empty'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0099_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": false,
+      "error": "parse: unbalanced JSON object in output"
+    },
+    {
+      "example_id": "tatqa_0099_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0099_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0099_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": false,
+      "error": "parse: 'Sales per square metre ($)$' is not in list"
+    },
+    {
+      "example_id": "tatqa_0104_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0104_...hreshold_filter_empty'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0104_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0104_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0104_...hreshold_filter_empty'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0104_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0110_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0110_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0110_...reshold_filter_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0110_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0110_cols_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0110_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0110_...reshold_filter_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0110_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0113_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0113_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0113_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0113_cols_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0113_cols_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0113_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0119_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0119_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0119_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0119_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0119_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0119_...hreshold_filter_empty'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0119_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0120_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0120_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0120_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "relevance",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0120_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0120_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0120_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0128_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0128_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0128_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": false,
+      "error": "parse: 'Total Property, Plant and Equipment, Gross' is not in list"
+    },
+    {
+      "example_id": "tatqa_0128_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0128_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 'April 27, 2019' is not in list"
+    },
+    {
+      "example_id": "tatqa_0128_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0129_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0129_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0129_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0129_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0129_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0139_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0139_...reshold_filter_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0142_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0142_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0142_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0142_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0142_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0142_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0143_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0143_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0143_...filter_near_threshold'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0143_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0143_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0143_...der_constraint_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0143_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0143_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0144_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0144_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0144_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0144_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0144_cols_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0144_...filter_near_threshold'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0144_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0146_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0146_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: '208' is not in list"
+    },
+    {
+      "example_id": "tatqa_0146_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0146_cols_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0146_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0146_...reshold_filter_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0146_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0149_rows_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0149_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0149_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0149_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0149_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0149_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0156_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0156_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0156_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0156_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0156_...hreshold_filter_empty'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0156_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0157_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0157_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0157_...hreshold_filter_empty'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0157_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0165_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0165_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0165_...reshold_filter_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0165_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0165_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0165_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0165_...reshold_filter_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0165_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0176_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0176_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0176_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": false,
+      "error": "parse: unbalanced JSON object in output"
+    },
+    {
+      "example_id": "tatqa_0176_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": false,
+      "error": "parse: 'Years Ended December 31, 2019' is not in list"
+    },
+    {
+      "example_id": "tatqa_0176_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0176_...hreshold_filter_empty'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0176_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0179_rows_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0179_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0179_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0179_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0179_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0179_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0182_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0182_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0182_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0182_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0182_cols_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0182_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0184_rows_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0184_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "numeric_comparisons_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0184_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0184_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0184_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0184_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0213_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0213_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0213_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0213_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0213_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0213_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0229_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    },
+    {
+      "example_id": "tatqa_0229_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "threshold_satisfaction"
+      ]
+    },
+    {
+      "example_id": "tatqa_0229_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": false,
+      "grounded": false,
+      "failed": [
+        "cells_exist",
+        "answer_correct",
+        "pareto_frontier_correct"
+      ]
+    },
+    {
+      "example_id": "tatqa_0229_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0229_...nder_constraint_empty'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0229_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "parsed": false,
+      "error": "parse: 1 validation error for Example\n  Value error, the final trace step must be of kind 'conclude' [type=value_error, input_value={'table_id': 'tatqa_0229_...reshold_filter_normal'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    },
+    {
+      "example_id": "tatqa_0229_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "parsed": true,
+      "valid": false,
+      "answer_correct": true,
+      "grounded": false,
+      "failed": [
+        "cells_exist"
+      ]
+    }
+  ]
+}

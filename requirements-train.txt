@@ -1,0 +1,25 @@
+# Phase 3 TRAINING dependencies - GPU. Install in a SEPARATE virtual environment
+# from the pure-CPU core (requirements.txt). Do NOT merge these into requirements.txt;
+# the data-prep / validation core must stay importable with only pydantic + pytest.
+#
+# Recommended: WSL2 (Ubuntu) - bitsandbytes/QLoRA is Linux-first and "just works".
+# Native Windows is possible (bitsandbytes ships Windows wheels >= 0.43) but more
+# fragile for 4-bit. Either way, a dedicated venv.
+#
+# torch must match your CUDA. RTX 3090 (Ampere) works with the cu121/cu124 wheels -
+# install torch FIRST from the CUDA index, then this file:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu124
+#   pip install -r requirements-train.txt
+# Verify: python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
+
+# The project's src/ imports the core (CPU) deps too - pull them in:
+-r requirements.txt
+
+torch>=2.3
+transformers>=4.44
+peft>=0.12
+trl>=0.9
+datasets>=2.20
+accelerate>=0.33
+bitsandbytes>=0.43      # 4-bit quantization for QLoRA (Linux-first; Windows >=0.43)
+sentencepiece>=0.2      # tokenizer dep for some model families

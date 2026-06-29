@@ -1,0 +1,318 @@
+{
+  "0": {
+    "rows": [
+      0
+    ],
+    "labels": [
+      "Expected loss rate"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "1": {
+    "rows": [
+      0
+    ],
+    "labels": [
+      "2019"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "2": {
+    "rows": [
+      0
+    ],
+    "labels": [
+      "Modules"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "3": {
+    "rows": [
+      0
+    ],
+    "labels": [
+      "UK"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "4": {
+    "rows": [],
+    "labels": [],
+    "none": true,
+    "ambiguous": false,
+    "note": ""
+  },
+  "5": {
+    "rows": [
+      1
+    ],
+    "labels": [
+      "Accruals and adjustments"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "6": {
+    "rows": [],
+    "labels": [],
+    "none": true,
+    "ambiguous": false,
+    "note": ""
+  },
+  "7": {
+    "rows": [],
+    "labels": [],
+    "none": true,
+    "ambiguous": false,
+    "note": ""
+  },
+  "8": {
+    "rows": [
+      1
+    ],
+    "labels": [
+      "Facility costs"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "9": {
+    "rows": [
+      3
+    ],
+    "labels": [
+      "Fair Value_1"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "10": {
+    "rows": [
+      1
+    ],
+    "labels": [
+      "EMEA"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "11": {
+    "rows": [
+      2
+    ],
+    "labels": [
+      "Leasehold"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "12": {
+    "rows": [],
+    "labels": [],
+    "none": true,
+    "ambiguous": false,
+    "note": ""
+  },
+  "13": {
+    "rows": [],
+    "labels": [],
+    "none": true,
+    "ambiguous": false,
+    "note": ""
+  },
+  "14": {
+    "rows": [
+      0,
+      4
+    ],
+    "labels": [
+      "Teekay LNG",
+      "Teekay Corporation Consolidated"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "15": {
+    "rows": [],
+    "labels": [],
+    "none": true,
+    "ambiguous": false,
+    "note": ""
+  },
+  "16": {
+    "rows": [
+      0,
+      1
+    ],
+    "labels": [
+      "2020 – 2024",
+      "2025 – 2029"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "17": {
+    "rows": [],
+    "labels": [],
+    "none": true,
+    "ambiguous": false,
+    "note": ""
+  },
+  "18": {
+    "rows": [
+      1,
+      2
+    ],
+    "labels": [
+      "Orders",
+      "Revenue"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "19": {
+    "rows": [],
+    "labels": [],
+    "none": true,
+    "ambiguous": false,
+    "note": ""
+  },
+  "20": {
+    "rows": [
+      0
+    ],
+    "labels": [
+      "2019"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "21": {
+    "rows": [],
+    "labels": [],
+    "none": true,
+    "ambiguous": false,
+    "note": ""
+  },
+  "22": {
+    "rows": [
+      1,
+      2
+    ],
+    "labels": [
+      "Interest income",
+      "Interest expense"
+    ],
+    "none": false,
+    "ambiguous": false,
+    "note": ""
+  },
+  "23": {
+    "rows": [],
+    "labels": [],
+    "none": true,
+    "ambiguous": false,
+    "note": ""
+  },
+  "24": {
+    "rows": [],
+    "labels": [],
+    "none": false,
+    "ambiguous": true,
+    "note": "i don't know"
+  },
+  "25": {
+    "rows": [],
+    "labels": [],
+    "none": false,
+    "ambiguous": true,
+    "note": "I don't know"
+  },
+  "26": {
+    "rows": [],
+    "labels": [],
+    "none": false,
+    "ambiguous": true,
+    "note": "I don't know"
+  },
+  "27": {
+    "rows": [],
+    "labels": [],
+    "none": false,
+    "ambiguous": true,
+    "note": "i dont'know"
+  },
+  "28": {
+    "rows": [],
+    "labels": [],
+    "none": false,
+    "ambiguous": true,
+    "note": "i don't know"
+  },
+  "29": {
+    "rows": [],
+    "labels": [],
+    "none": false,
+    "ambiguous": true,
+    "note": "I don't know"
+  },
+  "30": {
+    "rows": [],
+    "labels": [],
+    "none": false,
+    "ambiguous": true,
+    "note": "I don't know\n"
+  },
+  "31": {
+    "rows": [],
+    "labels": [],
+    "none": false,
+    "ambiguous": true,
+    "note": "I don't know"
+  },
+  "32": {
+    "rows": [],
+    "labels": [],
+    "none": false,
+    "ambiguous": true,
+    "note": "I don't know"
+  },
+  "33": {
+    "rows": [],
+    "labels": [],
+    "none": false,
+    "ambiguous": true,
+    "note": "I don't know"
+  },
+  "34": {
+    "rows": [],
+    "labels": [],
+    "none": false,
+    "ambiguous": true,
+    "note": "I don't know"
+  },
+  "35": {
+    "rows": [],
+    "labels": [],
+    "none": false,
+    "ambiguous": true,
+    "note": "I don't know"
+  }
+}

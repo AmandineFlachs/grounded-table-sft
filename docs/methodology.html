@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grounded Table Reasoning Traces - Methodology</title>
+<style>
+  :root {
+    --bg:#ffffff; --panel:#f6f8fa; --panel-2:#eef1f5; --ink:#1c2128; --muted:#57606a;
+    --accent:#0969da; --accent-2:#1a7f37; --warn:#9a6700; --line:#d0d7de; --code-bg:#f3f4f6;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6; }
+  .wrap { max-width:880px; margin:0 auto; padding:0 24px 80px; }
+  header.hero { padding:48px 24px 28px; background:linear-gradient(160deg,#eef3fb 0%,#ffffff 100%);
+    border-bottom:1px solid var(--line); }
+  header.hero .inner { max-width:880px; margin:0 auto; }
+  h1 { font-size:30px; margin:0 0 8px; letter-spacing:-0.5px; }
+  .subtitle { color:var(--muted); font-size:16px; margin:0; max-width:64ch; }
+  .meta-line { margin-top:16px; font-size:13px; color:var(--muted); }
+  .badge { display:inline-block; padding:3px 10px; border-radius:999px; font-size:12px; font-weight:600;
+    margin:0 6px 6px 0; background:rgba(9,105,218,0.1); color:var(--accent); border:1px solid rgba(9,105,218,0.25); }
+  .badge.green { background:rgba(26,127,55,0.1); color:var(--accent-2); border-color:rgba(26,127,55,0.25); }
+  .badge.warn { background:rgba(154,103,0,0.1); color:var(--warn); border-color:rgba(154,103,0,0.25); }
+  nav.toc { font-size:14px; margin:24px 0 8px; color:var(--muted); }
+  nav.toc a { color:var(--accent); text-decoration:none; }
+  nav.toc a:hover { text-decoration:underline; }
+  section { margin:40px 0; }
+  h2 { font-size:22px; margin:0 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+  h3 { font-size:16px; margin:22px 0 6px; color:var(--accent-2); }
+  p { margin:10px 0; }
+  .muted { color:var(--muted); }
+  .lead { font-size:17px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-left:4px solid var(--accent);
+    border-radius:10px; padding:14px 18px; margin:18px 0; }
+  code { background:var(--code-bg); padding:1px 6px; border-radius:5px; font-size:13px; color:#24292f;
+    font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+  pre { background:var(--code-bg); border:1px solid var(--line); border-radius:10px; padding:16px;
+    overflow-x:auto; font-size:13px; line-height:1.5;
+    font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
+  table { border-collapse:collapse; width:100%; margin:14px 0; font-size:14px; }
+  th, td { border:1px solid var(--line); padding:8px 12px; text-align:left; vertical-align:top; }
+  th { background:var(--panel-2); font-weight:600; }
+  td.r, th.r { text-align:right; }
+  tr:nth-child(even) td { background:rgba(0,0,0,0.02); }
+  .pipeline { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:16px 0; }
+  .node { background:var(--panel-2); border:1px solid var(--line); border-radius:10px; padding:9px 13px;
+    font-size:13px; font-weight:600; }
+  .node.key { background:rgba(26,127,55,0.12); border-color:rgba(26,127,55,0.3); color:var(--accent-2); }
+  .arrow { color:var(--accent); font-size:17px; }
+  ul.tight { margin:8px 0; padding-left:20px; } ul.tight li { margin:5px 0; }
+  footer { margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="inner">
+    <h1>Grounded Table Reasoning Traces - Methodology</h1>
+    <p class="subtitle">A technical reference for the ML approach: teaching a small model to answer
+    constrained questions over real tables and emit reasoning traces grounded in specific cells, by
+    routing its comprehension through a deterministic engine.</p>
+    <div class="meta-line">
+      <span class="badge green">Qwen3-4B · QLoRA</span>
+      <span class="badge">TAT-QA · CC BY 4.0</span>
+      <span class="badge green">Held-out test, scored once</span>
+      <br><br>
+      The reader-facing narrative with a live demo is in the
+      <a href="writeup.html"><strong>write-up</strong></a>; the consolidated, honestly-bounded results
+      are in <a href="../RESULTS.md"><strong>RESULTS.md</strong></a>. This page is the lean ML reference.
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <a href="#problem">1 Problem</a> · <a href="#data">2 Data &amp; task</a> ·
+  <a href="#schema">3 Schema</a> · <a href="#train">4 Model &amp; training</a> ·
+  <a href="#executor">5 Executor</a> · <a href="#grounding">6 Grounding &amp; gate</a> ·
+  <a href="#eval">7 Evaluation</a> · <a href="#results">8 Results</a> · <a href="#limits">9 Limitations</a>
+</nav>
+
+<section id="problem">
+  <h2>1. Problem &amp; approach</h2>
+  <p class="lead">Small language models <em>comprehend</em> table questions well but cannot reliably
+  <em>execute</em> the arithmetic. The goal is <strong>grounded reasoning traces</strong>: every step
+  tied to specific, verifiable cells, with every numeric claim provably true.</p>
+  <p>The design is <strong>neuro-symbolic</strong>. The model's job is comprehension: it emits a
+  structured <code>operation</code> (which op, which columns, which thresholds and directions, read
+  from the question). A small deterministic engine computes the answer and returns the exact cells it
+  read. So the model contributes understanding and explanation; proven code contributes the arithmetic
+  and the grounding. A safety gate falls back to the model when the emitted operation is not supported
+  by the question, keeping the system never worse than the model alone.</p>
+</section>
+
+<section id="data">
+  <h2>2. Data &amp; task</h2>
+  <p>Tables come from <strong>TAT-QA</strong> (Zhu et al., ACL 2021; CC BY 4.0): real financial tables
+  from company filings. TAT-QA's native questions are ~64% free-form arithmetic and only ~8% match
+  clean selection/threshold predicates, so we keep the <strong>real tables</strong> and generate three
+  families of <strong>constrained, programmatically-verifiable</strong> questions over them (both row-
+  and column-orientations, via transpose; explicit-direction phrasing so the gold is a mechanical
+  computation):</p>
+  <table>
+    <tr><th>Task</th><th><code>question_type</code></th><th>Gold</th></tr>
+    <tr><td>Winner selection</td><td><code>best_under_constraint</code></td><td>argmax of a target column over rows passing a threshold constraint</td></tr>
+    <tr><td>Constraint filtering</td><td><code>threshold_filter</code></td><td>the set of rows satisfying all conditions</td></tr>
+    <tr><td>Trade-off</td><td><code>tradeoff_summary</code></td><td>the Pareto frontier across two metrics</td></tr>
+  </table>
+  <p><strong>Independent validator.</strong> A rule-based validator recomputes the answer from a stored
+  <code>spec</code> and verifies each cited cell (existence, value match, numeric-comparison and
+  threshold correctness, relevance). It is deliberately kept <strong>independent</strong> of the answer
+  engine (its own predicate re-implementations, no shared helpers) so that "engine output passes
+  validator" is not circular. Total/subtotal rows are excluded from the entity universe by a single
+  shared rule, so the inference-time universe matches the gold spec.</p>
+  <p><strong>Splits &amp; sizes.</strong> <strong>1,266</strong> validated examples (100% pass the
+  validator); <strong>177</strong> silver-rendered training records. The eval split is
+  <strong>leakage-free at the table level</strong>: re-split by <em>source table</em> (orientation
+  suffixes stripped; 166/224 tables had straddled a per-example split), asserted disjoint at both
+  <code>id</code> and content-hash level - <strong>dev 190 / locked test 254</strong>, plus a separate
+  <strong>12-example out-of-distribution anchor</strong> (an <code>extremum</code> task type not in
+  training).</p>
+</section>
+
+<section id="schema">
+  <h2>3. Output schema</h2>
+  <p>The model emits one JSON object per example: <code>trace_steps[]</code> (each a short
+  natural-language <code>description</code> + a structured <code>cites</code> list), a structured
+  <code>final_answer</code>, and the <code>operation</code> the engine consumes. Citations carry both
+  coordinates and semantics for exact, reorder-robust validation:</p>
+  <table>
+    <tr><th>Type</th><th>Shape</th></tr>
+    <tr><td><code>CellRef</code></td><td><code>row:int, col:int, col_name:str, value</code> - the unit of evidence</td></tr>
+    <tr><td><code>TraceStep</code></td><td><code>kind:"filter"|"compare"|"aggregate"|"select"|"conclude", description, cites:[CellRef]</code></td></tr>
+    <tr><td><code>operation</code></td><td>op type + column <em>names</em> + thresholds + directions (e.g. <code>{type, target, target_dir, constraint, op, threshold}</code>)</td></tr>
+  </table>
+</section>
+
+<section id="train">
+  <h2>4. Model &amp; training</h2>
+  <p><strong>QLoRA SFT</strong>, fully local on a single RTX 3090 (~11 min/run). Base
+  <strong>Qwen3-1.7B</strong> first (to rehearse the converter → SFT → eval loop), then promoted to the
+  <strong>Qwen3-4B</strong> target on identical data.</p>
+  <ul class="tight">
+    <li><strong>Quantization:</strong> 4-bit NF4, bfloat16 compute.</li>
+    <li><strong>LoRA:</strong> r=16, α=32, dropout=0.05, <code>target_modules="all-linear"</code>, causal-LM.</li>
+    <li><strong>Optimization:</strong> 3 epochs, lr 2e-4, batch 2 (+ gradient accumulation), bf16.</li>
+    <li><strong>Loss:</strong> <strong>completion-only</strong> - the prompt is masked to <code>-100</code>
+      with a deterministic, verified assistant-only mask (this was the decisive fix over full-sequence
+      loss: valid-trace 0%→17% at 1.7B).</li>
+  </ul>
+  <p><strong>Silver training labels.</strong> Each question is rendered <strong>N=3</strong> times
+  (headless Claude); only answers that <em>agree</em> and pass the Tier-1 groundedness + numeric-
+  consistency checks are kept (high-precision, ~56% yield). The held-out eval set keeps the silver set
+  honest.</p>
+</section>
+
+<section id="executor">
+  <h2>5. The executor - answer by construction</h2>
+  <p>SFT alone left answers at ~59%; error analysis showed the residual was <strong>arithmetic-execution</strong>
+  errors (flipped comparisons, fumbled dominance), not misreadings. So instead of trusting the model's
+  arithmetic, the model emits the structured <code>operation</code> and a deterministic engine
+  (<code>src/executor.py</code>) computes the answer: row filtering, argmax/min, multi-condition
+  thresholds, and Pareto dominance, with explicit epsilon tolerance, tie handling, and total-row
+  exclusion. Operations reference column <em>names</em>, so they are robust to reordering and are
+  exactly what a model can read off the question.</p>
+  <p class="card">By design the engine is <strong>independent of the validator</strong> (separate
+  predicate re-implementations). The validator remains a genuine external check on the engine's output;
+  sharing code would make "executor output passes validator" circular - the same independence the
+  validator keeps from the generator.</p>
+</section>
+
+<section id="grounding">
+  <h2>6. Grounding &amp; the safety gate</h2>
+  <h3>Grounding by construction</h3>
+  <p>The model's hand-typed citations have the same disease as its arithmetic (wrong/derived numbers),
+  so they get the same cure: the trace cites the <strong>cells the engine actually read</strong>
+  (<code>executor.evidence_for</code>) - grounded by construction (read straight from the table, so they
+  always exist and match). The trace <em>prose</em> stays model-authored (the explanation); the cited
+  evidence becomes system-constructed (the proof).</p>
+  <h3>Out-of-vocabulary safety gate</h3>
+  <p>The engine only helps inside its trained operation vocabulary. The gate checks the
+  <em>question</em> carries the signal the emitted op type requires - threshold language for
+  best/threshold ops, trade-off/Pareto language for tradeoff. If the signal is absent, the operation is
+  fabricated, so the system falls back to the model's own answer. Deployable from question text + op
+  type alone (no gold); a "do no harm" check, not merely an OOD patch.</p>
+</section>
+
+<section id="eval">
+  <h2>7. Evaluation methodology</h2>
+  <p><strong>Metrics</strong> (over <em>all</em> examples - an unparseable output scores 0 on every
+  metric): engine answer accuracy vs. the model's own answer, operation present / whole-op exact-match,
+  trace groundedness, full valid-trace, and a per-type breakdown.</p>
+  <p><strong>Protocol.</strong> A <code>dev</code> slice (190) for iteration; the
+  <strong>locked test (254) scored exactly once</strong> under a pre-registered frozen config
+  (Qwen3-4B + the SFT-exec adapter, greedy/deterministic, strict validator).</p>
+  <p><strong>Circularity and the anchors.</strong> The in-distribution gold is spec-derived and the
+  engine re-implements the same semantics, so an in-distribution score measures
+  <strong>operation-comprehension consistency</strong> on unseen tables, not correctness against an
+  outside oracle. Two <em>blind</em> anchors break the circularity: independent LLM annotators answering
+  from the raw table + question alone agreed with stored gold <strong>36/36</strong>; a blind human
+  oracle agreed <strong>24/24</strong> on the two natural types (0 gold errors). The
+  <strong>OOD anchor</strong> (12 <code>extremum</code> examples, a task type outside the operation
+  vocabulary) is the only fully non-circular slice - and it is what exposed the executor's
+  specialization limit (below).</p>
+</section>
+
+<section id="results">
+  <h2>8. Results &amp; key findings</h2>
+  <p>Progression (trained-model stages on dev 190; the two system layers re-scored on the locked test 254):</p>
+  <table>
+    <tr><th>Stage</th><th class="r">Valid trace</th><th class="r">Grounded</th><th class="r">Answer</th></tr>
+    <tr><td>Base Qwen3-1.7B (zero-shot)</td><td class="r">0%</td><td class="r">1%</td><td class="r">18%</td></tr>
+    <tr><td>+ QLoRA SFT (1.7B)</td><td class="r">17%</td><td class="r">49%</td><td class="r">20%</td></tr>
+    <tr><td>Base Qwen3-4B (zero-shot)</td><td class="r" colspan="3" style="text-align:center;color:var(--warn)">pending (measured separately)</td></tr>
+    <tr><td>+ QLoRA SFT (4B, same data)</td><td class="r">44%</td><td class="r">70%</td><td class="r">52%</td></tr>
+    <tr><td>+ Executor (answer by construction)</td><td class="r">69%</td><td class="r">71%</td><td class="r"><strong>95.7%</strong></td></tr>
+    <tr><td><strong>+ Grounding (citations by construction)</strong></td><td class="r"><strong>94.9%</strong></td><td class="r"><strong>96.9%</strong></td><td class="r"><strong>95.7%</strong></td></tr>
+  </table>
+  <p>On the <strong>locked test (254)</strong>: engine answer <strong>95.7%</strong> [92.4–97.6] vs. the
+  model's own arithmetic 59.4% - a paired <strong>+93 / −1</strong> (exact-McNemar p ≈ 10⁻²⁶); by type
+  97.6 / 96.6 / 92.9%. Grounding lifts the trace-grounded rate <strong>71.3% → 96.9%</strong> (valid
+  68.9% → 94.9%). The gate takes OOD <strong>0% → 100%</strong> and in-distribution 95.7% → 96.1%
+  (fires on 9/254, never on a case the engine got right). Full numbers and CIs: <a href="../RESULTS.md">RESULTS.md</a>.</p>
+  <h3>Key findings</h3>
+  <ul class="tight">
+    <li><strong>Capacity-bound, not data-bound.</strong> The 1.7B→4B jump on <em>identical</em> data
+      (valid 17%→44%, answer 20%→52%) located the bottleneck in model size, not training data.</li>
+    <li><strong>The residual is execution, not perception.</strong> Grounded-but-wrong answers were
+      arithmetic-execution errors - which is what motivated routing the arithmetic through code.</li>
+    <li><strong>The model's own citations are near a ceiling</strong> (~71%), so grounding is solved by
+      construction rather than by retraining a 4B model to cite better.</li>
+    <li><strong>The executor is a specialization, not a general engine.</strong> On the OOD anchor the
+      model's own answer is 100% but it emits a <em>trained</em> op type, so the executor scores 0/12 -
+      hence the gate.</li>
+  </ul>
+</section>
+
+<section id="limits">
+  <h2>9. Limitations</h2>
+  <ul class="tight">
+    <li><strong>In-distribution gold is spec-derived</strong> - corroborated by two blind oracles, but
+      not proven: n is small, tradeoff has only the LLM check, the human is one annotator.</li>
+    <li><strong>Specialization</strong> - the engine helps only inside its trained op vocabulary; the
+      gate makes that safe but it is not a general table engine.</li>
+    <li><strong>Trace prose stays model-authored</strong> - the system grounds the answer and the cited
+      evidence; an unaided 4B model's own citations remain ~71%.</li>
+    <li><strong>Coverage &amp; domain</strong> - only high-confidence ingested tables (~97%); selection
+      / threshold / frontier reasoning, not TAT-QA's dominant free-form arithmetic; TAT-QA is financial,
+      and transfer to scientific/ML tables is unverified.</li>
+    <li><strong>Non-natural trade-off questions</strong> - "Pareto-optimal" is technical; a
+      non-specialist human couldn't assess it (12/12 "I don't know").</li>
+    <li><strong>Provenance</strong> - the 12-example OOD anchor is <em>TAT-QA-gold-anchored</em> (their
+      annotations, cross-checked 16/16 by our recompute), not verified by anyone on this project.</li>
+  </ul>
+</section>
+
+<footer>
+  Grounded Table Reasoning Traces · <code>docs/methodology.html</code>. Companion documents:
+  <a href="writeup.html">write-up</a> (narrative + demo) and <a href="../RESULTS.md">RESULTS.md</a>
+  (full results). The development chronology lives in the git history.
+</footer>
+
+</div>
+</body>
+</html>

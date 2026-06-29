@@ -1,0 +1,95 @@
+You are an expert financial analyst. Below are several INDEPENDENT (table, question) items. For EACH item, determine the answer using ONLY that item's table and question text. Do not use any tools or read any files — reason solely from what is shown.
+
+For each item, return the row label(s) — copied EXACTLY from that item's "Choices" list — that answer the question. Return ALL labels that apply. If no row satisfies the question, return ["none"].
+
+Answer the question EXACTLY as phrased (honor wording like "Pareto-optimal", "maximizing both", "at least", "under", "lowest/highest", or "exclude total/subtotal rows"). Do NOT assume any convention the question does not state.
+
+Return ONLY a JSON object mapping each card_id (as a string) to an array of labels. Example: {"0": ["Net receivables"], "3": ["none"], "7": ["Alpha","Beta"]}
+
+
+===== ITEMS =====
+
+
+[card_id=0]  (task family: best_under_constraint)
+Question: Which line item has the lowest value in 31 to 60 days past due $'000 while keeping value in More than 60 days past due $'000 under 1532.5?
+Choices (return labels from this list only): ['Expected loss rate', 'Gross carrying amount', 'Loss allowance provision', 'Net receivables']
+Table:
+| 30 June 2019 | Current $'000 | 0 to 30 days past due $'000 | 31 to 60 days past due $'000 | More than 60 days past due $'000 | Total $'000 |
+| --- | --- | --- | --- | --- | --- |
+| Expected loss rate | 1 | 5 | 7.5 | 20 |  |
+| Gross carrying amount | 23762 | 2068 | 787 | 1703 | 28320 |
+| Loss allowance provision | 238 | 103 | 59 | 341 | 741 |
+| Net receivables | 23524 | 1965 | 728 | 1362 | 27579 |
+
+
+[card_id=6]  (task family: best_under_constraint)
+Question: Which line item has the lowest value in 2018 Number while keeping value in 2019 Number under -470757?
+Choices (return labels from this list only): ['Outstanding at 1 April', 'Dividend shares awarded', 'Forfeited', 'Released', 'Outstanding at 31 March', 'Vested and outstanding at 31 March']
+Table:
+| category | 2019 Number | 2018 Number |
+| --- | --- | --- |
+| Outstanding at 1 April | 690791 | 776045 |
+| Dividend shares awarded | 4518 | 9778 |
+| Forfeited | -9275 | -75986 |
+| Released | -365162 | -19046 |
+| Outstanding at 31 March | 320872 | 690791 |
+| Vested and outstanding at 31 March | 320872 |  |
+
+
+[card_id=12]  (task family: threshold_filter)
+Question: Which periods have Amounts owed to members of Peel under -0.2 and Amounts owed by members of Peel under 0.4?
+Choices (return labels from this list only): ['2019', '2018']
+Table:
+| £m | Net investment in finance lease | Amounts owed by members of Peel | Amounts owed to members of Peel |
+| --- | --- | --- | --- |
+| 2019 | 0.8 | 0.3 | -0.1 |
+| 2018 | 1.2 | 0.3 | -0.1 |
+
+
+[card_id=18]  (task family: threshold_filter)
+Question: Which line items have value in Fiscal year of at least 17387.1?
+Choices (return labels from this list only): ['(in millions of €)', 'Orders', 'Revenue', 'therein: service business', 'Adjusted EBITA', 'Adjusted EBITA margin']
+Table:
+| category | col_1 | Fiscal year | col_3 | % Change |
+| --- | --- | --- | --- | --- |
+| (in millions of €) | 2019 | 2018 | Actual | Comp. |
+| Orders | 19975 | 18451 | 8 | 7 |
+| Revenue | 17663 | 18125 | -3 | -4 |
+| therein: service business | 8025 | 7756 | 3 | 2 |
+| Adjusted EBITA | 679 | 722 | -6 |  |
+| Adjusted EBITA margin | 3.8 | 4 |  |  |
+
+
+[card_id=24]  (task family: tradeoff_summary)
+Question: Among these line items, which are Pareto-optimal when maximizing both value in 2019 and value in 2018?
+Choices (return labels from this list only): ['Allowance for doubtful accounts', 'Foreign tax credit carryforward', 'Depreciation', 'Deferred revenue', 'Accrued compensation', 'Inventory reserves', 'Accrued warranty', 'Net operating loss carryforward', 'Accrued restructuring', 'Intangibles and goodwill', 'Other', 'Gross deferred tax assets', 'Valuation allowance', 'Net deferred income tax assets', 'Intangibles and goodwill']
+Table:
+| (in thousands) | 2019 | 2018 |
+| --- | --- | --- |
+| Allowance for doubtful accounts | 26 | 24 |
+| Foreign tax credit carryforward | 810 | 812 |
+| Depreciation | 173 | 227 |
+| Deferred revenue | 425 | 675 |
+| Accrued compensation | 412 | 358 |
+| Inventory reserves | 757 | 948 |
+| Accrued warranty | 33 | 77 |
+| Net operating loss carryforward | 35024 | 34924 |
+| Accrued restructuring |  | 16 |
+| Intangibles and goodwill | 272 |  |
+| Other | 839 | 660 |
+| Gross deferred tax assets | 38771 | 38721 |
+| Valuation allowance | -38771 | -37103 |
+| Net deferred income tax assets |  | 1618 |
+| Intangibles and goodwill |  | -1618 |
+
+
+[card_id=30]  (task family: tradeoff_summary)
+Question: Among these line items, which are Pareto-optimal when maximizing both value in 31 March 2019 $M and value in 31 March 2018 $M?
+Choices (return labels from this list only): ['Americas', 'EMEA', 'APJ', '']
+Table:
+| category | 31 March 2019 $M | 31 March 2018 $M |
+| --- | --- | --- |
+| Americas | 273.6 | 288.2 |
+| EMEA | 413 | 434.2 |
+| APJ | 98.7 | 103.6 |
+|  | 785.3 | 826 |

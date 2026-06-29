@@ -1,0 +1,28 @@
+{
+  "anchor": "blind human (annotate.html), in-distribution test, seed 0 n 36",
+  "scope": "best_under_constraint + threshold_filter (the two NATURAL types); tradeoff_summary flagged 'I don't know' by the annotator and excluded",
+  "blind_human_vs_gold": "22/24 agreement",
+  "disagreements_adjudicated": [
+    {
+      "card_id": 10,
+      "example_id": "tatqa_0114_rows_best_under_constraint_normal",
+      "question": "lowest 31 March 2019 while 31 March 2018 >= 195.9",
+      "human": "EMEA",
+      "gold": "Americas",
+      "resolution": "GOLD CORRECT — among rows passing 2018>=195.9 (Americas, EMEA, total), Americas (273.6) is the lowest 2019; EMEA (413) is not. Human slip, confirmed by annotator.",
+      "verdict": "human_error"
+    },
+    {
+      "card_id": 17,
+      "example_id": "tatqa_0198_rows_threshold_filter_near_threshold",
+      "question": "Internal valuation % < 41.48 and External valuation % >= 25",
+      "human": "none",
+      "gold": "Leasehold (2nd row)",
+      "resolution": "GOLD CORRECT — the table has TWO 'Leasehold' rows; the second (Internal 40, External 60) satisfies both conditions. Human missed it due to the duplicate row label. Human slip, confirmed by annotator.",
+      "verdict": "human_error_induced_by_duplicate_label_artifact"
+    }
+  ],
+  "gold_errors_found": 0,
+  "conclusion": "On the two natural question types the gold is corroborated by an independent blind human: 0 gold errors (22 direct agreements + 2 disagreements both adjudicated to human slips). tradeoff_summary NOT human-validated (technical term the non-specialist annotator could not assess; 12/12 flagged 'I don't know') -> independent validation of tradeoff rests on the LLM anchor (12/12).",
+  "data_quality_note": "card 17 confirms duplicate row labels trip even a careful human; the annotator's 12/12 'I don't know' on tradeoff confirms 'Pareto-optimal' questions are non-natural."
+}

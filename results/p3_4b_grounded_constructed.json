@@ -1,0 +1,1808 @@
+{
+  "n": 254,
+  "agg": {
+    "model_grounded": 181,
+    "grounded_constructed": 246,
+    "valid_constructed": 241
+  },
+  "type_n": {
+    "best_under_constraint": 83,
+    "threshold_filter": 87,
+    "tradeoff_summary": 84
+  },
+  "by_type": {
+    "best_under_constraint": {
+      "model_grounded": 59,
+      "grounded_constructed": 83
+    },
+    "threshold_filter": {
+      "model_grounded": 64,
+      "grounded_constructed": 84
+    },
+    "tradeoff_summary": {
+      "model_grounded": 58,
+      "grounded_constructed": 79
+    }
+  },
+  "note": "grounded_constructed = trace evidence built from the cells the engine read (src/executor.evidence_for), re-scored on saved locked-test outputs; model_grounded = the model's own hand-typed citations (unchanged).",
+  "details": [
+    {
+      "example_id": "tatqa_0036_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0036_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0036_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0055_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0055_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0055_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0055_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0066_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0066_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0066_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0066_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0066_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0069_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": false
+    },
+    {
+      "example_id": "tatqa_0069_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0069_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0069_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0069_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0069_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0074_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0074_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0074_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0074_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0074_cols_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0074_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0089_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0089_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0089_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0089_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0089_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0089_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0092_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": false
+    },
+    {
+      "example_id": "tatqa_0092_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0092_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0092_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0092_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0092_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0094_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0094_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0094_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0094_cols_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0094_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0094_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0103_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0103_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": false,
+      "valid_constructed": false
+    },
+    {
+      "example_id": "tatqa_0103_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0103_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0103_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0103_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0105_rows_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0105_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0105_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0105_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0105_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0105_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0106_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0106_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0106_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0106_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": false
+    },
+    {
+      "example_id": "tatqa_0106_cols_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0106_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0107_rows_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0107_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0107_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0107_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0107_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0107_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0108_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0108_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0108_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0108_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0108_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0108_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0111_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0111_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0111_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0111_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0111_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0111_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0114_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0114_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0114_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0114_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0114_cols_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0114_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0118_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0118_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0118_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0118_cols_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0118_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0118_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0122_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0122_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0122_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0122_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0122_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0122_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0124_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": false
+    },
+    {
+      "example_id": "tatqa_0124_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0124_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0124_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0124_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0124_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0132_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0132_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0132_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0132_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0132_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0132_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0135_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0135_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0135_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0135_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0135_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0147_rows_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0147_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0147_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0147_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0147_cols_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0147_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0148_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0148_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0148_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0148_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0148_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0148_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": false
+    },
+    {
+      "example_id": "tatqa_0150_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0150_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0150_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0150_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0150_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0150_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0153_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0153_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0153_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0153_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0153_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0153_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0155_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0155_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": false,
+      "valid_constructed": false
+    },
+    {
+      "example_id": "tatqa_0155_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": false,
+      "valid_constructed": false
+    },
+    {
+      "example_id": "tatqa_0155_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0155_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0155_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0160_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0160_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0160_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0160_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0160_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0170_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0170_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0170_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0170_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0170_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0170_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0173_rows_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0173_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0173_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": false,
+      "valid_constructed": false
+    },
+    {
+      "example_id": "tatqa_0173_cols_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0173_cols_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0177_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0177_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0177_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0177_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0177_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0180_rows_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0180_rows_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0180_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0180_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0180_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0180_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0188_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0188_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0188_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0188_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0188_cols_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0188_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0189_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0189_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0189_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0189_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0189_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0189_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0192_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0192_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0192_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0192_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0192_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0192_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0195_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0195_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0195_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0195_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0195_cols_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0195_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0198_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0198_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0198_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0198_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0198_cols_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0198_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0199_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0199_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0199_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0199_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0199_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0199_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0202_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0202_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0202_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": false,
+      "valid_constructed": false
+    },
+    {
+      "example_id": "tatqa_0202_cols_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0202_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0202_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0204_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0204_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": false,
+      "valid_constructed": false
+    },
+    {
+      "example_id": "tatqa_0204_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0204_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0204_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0207_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0207_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0207_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0207_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0210_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0210_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0210_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0210_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0210_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0210_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0218_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0218_rows_threshold_filter_near_threshold",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0218_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": false,
+      "valid_constructed": false
+    },
+    {
+      "example_id": "tatqa_0219_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0219_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0219_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0219_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0219_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0219_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0221_rows_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0221_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0221_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0221_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0221_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0221_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0224_rows_best_under_constraint_empty",
+      "type": "best_under_constraint",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0224_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0224_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0224_cols_best_under_constraint_normal",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0224_cols_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0224_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": false,
+      "grounded_constructed": false,
+      "valid_constructed": false
+    },
+    {
+      "example_id": "tatqa_0230_rows_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0230_rows_threshold_filter_normal",
+      "type": "threshold_filter",
+      "model_grounded": false,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0230_rows_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0230_cols_best_under_constraint_near_threshold",
+      "type": "best_under_constraint",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0230_cols_threshold_filter_empty",
+      "type": "threshold_filter",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    },
+    {
+      "example_id": "tatqa_0230_cols_tradeoff_summary_normal",
+      "type": "tradeoff_summary",
+      "model_grounded": true,
+      "grounded_constructed": true,
+      "valid_constructed": true
+    }
+  ]
+}

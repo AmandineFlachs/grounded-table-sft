@@ -1,0 +1,8 @@
+[codespell]
+# Repo-specific false positives (verified - do NOT "correct" these):
+#   ans          -> CSS class name `table.ans` in the HTML write-up, not a typo for "and"
+#   unparseable  -> accepted variant spelling, used intentionally in code and docs
+#   disjointness -> correct term (the property of being disjoint), not "disjointedness"
+ignore-words-list = ans,unparseable,disjointness
+# Skip generated data / result artifacts and version control internals.
+skip = ./.git,./data,./results,./promo,./.venv,./.venv-train,*.json,*.jsonl

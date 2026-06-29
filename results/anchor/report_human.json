@@ -1,0 +1,92 @@
+{
+  "scored": 24,
+  "agree": 22,
+  "ambiguous_skipped": 12,
+  "disagreements": [
+    {
+      "card_id": 10,
+      "example_id": "tatqa_0114_rows_best_under_constraint_normal",
+      "human_rows": [
+        1
+      ],
+      "gold_rows": [
+        0
+      ],
+      "engine_ok": true,
+      "note": ""
+    },
+    {
+      "card_id": 17,
+      "example_id": "tatqa_0198_rows_threshold_filter_near_threshold",
+      "human_rows": [],
+      "gold_rows": [
+        2
+      ],
+      "engine_ok": true,
+      "note": ""
+    }
+  ],
+  "ambiguous": [
+    {
+      "card_id": 24,
+      "example_id": "tatqa_0204_rows_tradeoff_summary_normal",
+      "note": "i don't know"
+    },
+    {
+      "card_id": 25,
+      "example_id": "tatqa_0094_rows_tradeoff_summary_normal",
+      "note": "I don't know"
+    },
+    {
+      "card_id": 26,
+      "example_id": "tatqa_0155_cols_tradeoff_summary_normal",
+      "note": "I don't know"
+    },
+    {
+      "card_id": 27,
+      "example_id": "tatqa_0180_rows_tradeoff_summary_normal",
+      "note": "i dont'know"
+    },
+    {
+      "card_id": 28,
+      "example_id": "tatqa_0148_rows_tradeoff_summary_normal",
+      "note": "i don't know"
+    },
+    {
+      "card_id": 29,
+      "example_id": "tatqa_0221_cols_tradeoff_summary_normal",
+      "note": "I don't know"
+    },
+    {
+      "card_id": 30,
+      "example_id": "tatqa_0114_rows_tradeoff_summary_normal",
+      "note": "I don't know\n"
+    },
+    {
+      "card_id": 31,
+      "example_id": "tatqa_0204_cols_tradeoff_summary_normal",
+      "note": "I don't know"
+    },
+    {
+      "card_id": 32,
+      "example_id": "tatqa_0192_rows_tradeoff_summary_normal",
+      "note": "I don't know"
+    },
+    {
+      "card_id": 33,
+      "example_id": "tatqa_0188_cols_tradeoff_summary_normal",
+      "note": "I don't know"
+    },
+    {
+      "card_id": 34,
+      "example_id": "tatqa_0199_cols_tradeoff_summary_normal",
+      "note": "I don't know"
+    },
+    {
+      "card_id": 35,
+      "example_id": "tatqa_0132_cols_tradeoff_summary_normal",
+      "note": "I don't know"
+    }
+  ],
+  "note": "oracle = BLIND HUMAN annotation from raw table + question only (annotate.html); compared by row index; honest human anchor"
+}

@@ -1,0 +1,83 @@
+You are an expert financial analyst. Below are several INDEPENDENT (table, question) items. For EACH item, determine the answer using ONLY that item's table and question text. Do not use any tools or read any files — reason solely from what is shown.
+
+For each item, return the row label(s) — copied EXACTLY from that item's "Choices" list — that answer the question. Return ALL labels that apply. If no row satisfies the question, return ["none"].
+
+Answer the question EXACTLY as phrased (honor wording like "Pareto-optimal", "maximizing both", "at least", "under", "lowest/highest", or "exclude total/subtotal rows"). Do NOT assume any convention the question does not state.
+
+Return ONLY a JSON object mapping each card_id (as a string) to an array of labels. Example: {"0": ["Net receivables"], "3": ["none"], "7": ["Alpha","Beta"]}
+
+
+===== ITEMS =====
+
+
+[card_id=4]  (task family: best_under_constraint)
+Question: Which period has the highest Shares vested while keeping Non-vested at beginning of year of at least 482583?
+Choices (return labels from this list only): ['2019 Number of Shares', 'Weighted Average Grant Date Fair Value', '2018 Number of Shares', 'Weighted Average Grant Date Fair Value_1']
+Table:
+| category | Non-vested at beginning of year | Shares granted | Shares vested | Non-vested at end of year |
+| --- | --- | --- | --- | --- |
+| 2019 Number of Shares | 315292 | 253113 | 82270 | 486135 |
+| Weighted Average Grant Date Fair Value | 2.26 | 2.17 | 2.28 | 2.53 |
+| 2018 Number of Shares | 438712 | 200000 | 323420 | 315292 |
+| Weighted Average Grant Date Fair Value_1 | 2.28 | 3.16 | 2.84 | 2.26 |
+
+
+[card_id=10]  (task family: best_under_constraint)
+Question: Which line item has the lowest value in 31 March 2019 $M while keeping value in 31 March 2018 $M of at least 195.9?
+Choices (return labels from this list only): ['Americas', 'EMEA', 'APJ', '']
+Table:
+| category | 31 March 2019 $M | 31 March 2018 $M |
+| --- | --- | --- |
+| Americas | 273.6 | 288.2 |
+| EMEA | 413 | 434.2 |
+| APJ | 98.7 | 103.6 |
+|  | 785.3 | 826 |
+
+
+[card_id=16]  (task family: threshold_filter)
+Question: Which line items have value in Ground Leases of at least 119?
+Choices (return labels from this list only): ['2020 – 2024', '2025 – 2029', '2030 – 2034']
+Table:
+| Fiscal Year | Ground Leases | Building Leases |
+| --- | --- | --- |
+| 2020 – 2024 | 381 | 697 |
+| 2025 – 2029 | 198 | 270 |
+| 2030 – 2034 | 40 | 135 |
+
+
+[card_id=22]  (task family: threshold_filter)
+Question: Which line items have value in Year ended March 31, under 1664 and value in col_2 under 1263.5? Exclude any total or subtotal rows.
+Choices (return labels from this list only): ['% Change', 'Interest income', 'Interest expense', 'Foreign exchange (expense) income and other, net', 'Total other income (expense), net']
+Table:
+| category | Year ended March 31, | col_2 | Period-to-period change | col_4 |
+| --- | --- | --- | --- | --- |
+| % Change | 2018 | 2017 | Amount | % Change |
+| Interest income | 1310 | 510 | 800 | 157 |
+| Interest expense | -598 | -268 | -330 | 123 |
+| Foreign exchange (expense) income and other, net | -3439 | 6892 | -10331 |  |
+| Total other income (expense), net | -2727 | 7134 | -9861 |  |
+
+
+[card_id=28]  (task family: tradeoff_summary)
+Question: Among these line items, which are Pareto-optimal when maximizing both value in Year ended March 31, and value in col_2? Exclude any total or subtotal rows.
+Choices (return labels from this list only): ['% Change', 'Interest income', 'Interest expense', 'Foreign exchange (expense) income and other, net', 'Total other income (expense), net']
+Table:
+| category | Year ended March 31, | col_2 | Period-to-period change | col_4 |
+| --- | --- | --- | --- | --- |
+| % Change | 2018 | 2017 | Amount | % Change |
+| Interest income | 1310 | 510 | 800 | 157 |
+| Interest expense | -598 | -268 | -330 | 123 |
+| Foreign exchange (expense) income and other, net | -3439 | 6892 | -10331 |  |
+| Total other income (expense), net | -2727 | 7134 | -9861 |  |
+
+
+[card_id=34]  (task family: tradeoff_summary)
+Question: Among these periods, which are Pareto-optimal when maximizing both Non-vested at end of year and Non-vested at beginning of year?
+Choices (return labels from this list only): ['2019 Number of Shares', 'Weighted Average Grant Date Fair Value', '2018 Number of Shares', 'Weighted Average Grant Date Fair Value_1']
+Table:
+| category | Non-vested at beginning of year | Shares granted | Shares vested | Non-vested at end of year |
+| --- | --- | --- | --- | --- |
+| 2019 Number of Shares | 315292 | 253113 | 82270 | 486135 |
+| Weighted Average Grant Date Fair Value | 2.26 | 2.17 | 2.28 | 2.53 |
+| 2018 Number of Shares | 438712 | 200000 | 323420 | 315292 |
+| Weighted Average Grant Date Fair Value_1 | 2.28 | 3.16 | 2.84 | 2.26 |

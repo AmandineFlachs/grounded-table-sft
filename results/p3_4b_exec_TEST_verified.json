@@ -1,0 +1,216 @@
+{
+  "model": "Qwen/Qwen3-4B",
+  "adapter": "models/qwen3-4b-sft-exec",
+  "dataset": "data/processed/realtable_eval_verified.v0_1_0.jsonl",
+  "n": 12,
+  "agg": {
+    "ceiling_ok": 12,
+    "parsed": 12,
+    "op_present": 12,
+    "whole_op": 0,
+    "engine_strict": 0,
+    "engine_allrows": 0,
+    "model_ans": 12,
+    "fallback": 2,
+    "fallback_used": 2,
+    "valid": 0,
+    "grounded": 4,
+    "mve_10": 12
+  },
+  "by_type": {
+    "rank_models": {
+      "whole_op": 0,
+      "engine": 0
+    }
+  },
+  "type_n": {
+    "rank_models": 12
+  },
+  "field_ok": {
+    "rank_models": {
+      "type": 0
+    }
+  },
+  "field_tot": {
+    "rank_models": {
+      "type": 12
+    }
+  },
+  "baseline_pair": {
+    "baseline_only": 0,
+    "exec_only": 0,
+    "both": 0,
+    "neither": 0,
+    "mcnemar_p": 1.0
+  },
+  "details": [
+    {
+      "example_id": "tatqa_0000_cols_rank_models_verified",
+      "type": "rank_models",
+      "parsed": true,
+      "render_error": null,
+      "raw": "{\"trace_steps\": [{\"kind\": \"select\", \"description\": \"Identify the total sales for each year.\", \"cites\": [{\"row\": 0, \"col_name\": \"Total sales\", \"value\": 1496.5}, {\"row\": 1, \"col_name\": \"Total sales\", \"value\": 1202.9}, {\"row\": 2, \"col_name\": \"Total sales\", \"value\": 1107.7}]}, {\"kind\": \"compare\", \"description\": \"Compare the total sales values: 1496.5 > 1202.9 > 1107.7.\", \"cites\": [{\"row\": 0, \"col_name\": \"Total sales\", \"value\": 1496.5}, {\"row\": 1, \"col_name\": \"Total sales\", \"value\": 1202.9}, {\"row\": 2, \"col_name\": \"Total sales\", \"value\": 1107.7}]}, {\"kind\": \"conclude\", \"description\": \"The largest total sales is in the year 2019.\", \"cites\": [{\"row\": 0, \"col_name\": \"category\", \"value\": 2019}]}], \"final_answer\": {\"label\": \"2019\", \"rows\": [0], \"metrics\": []}, \"operation\": {\"type\": \"best_under_constraint\", \"target\": \"Total sales\", \"target_dir\": \"higher\", \"constraint\": \"category\", \"op\": \"lt\", \"threshold\": 2019.0}}",
+      "op_present": true,
+      "whole_op": false,
+      "engine_ok": false,
+      "engine_err": false,
+      "model_ok": true,
+      "valid": false,
+      "grounded": false
+    },
+    {
+      "example_id": "tatqa_0001_cols_rank_models_verified",
+      "type": "rank_models",
+      "parsed": true,
+      "render_error": null,
+      "raw": "{\"trace_steps\": [{\"kind\": \"select\", \"description\": \"Extract the Sensors column values for each year.\", \"cites\": [{\"row\": 0, \"col_name\": \"Sensors\", \"value\": 914}, {\"row\": 1, \"col_name\": \"Sensors\", \"value\": 918}, {\"row\": 2, \"col_name\": \"Sensors\", \"value\": 814}]}, {\"kind\": \"compare\",  \"description\": \"Compare the Sensor values across the three years: 914 (2019), 918 (2018), and 814 (2017).\", \"cites\": [{\"row\": 1, \"col_name\": \"Sensors\", \"value\": 918}, {\"row\": 0, \"col_name\": \"Sensors\", \"value\": 914}]}, {\"kind\": \"conclude\", \"description\": \"The largest Sensor value is 918 in 2018.\", \"cites\": [{\"row\": 1, \"col_name\": \"Sensors\", \"value\": 918}]}], \"final_answer\": {\"label\": \"2018\", \"rows\": [1], \"metrics\": []}, \"operation\": {\"type\": \"best_under_constraint\", \"target\": \"Sensors\", \"target_dir\": \"higher\", \"constraint\": \"year\", \"op\": \"lt\", \"threshold\": 2018.0}}",
+      "op_present": true,
+      "whole_op": false,
+      "engine_ok": false,
+      "engine_err": true,
+      "model_ok": true,
+      "valid": false,
+      "grounded": false
+    },
+    {
+      "example_id": "tatqa_0026_cols_rank_models_verified",
+      "type": "rank_models",
+      "parsed": true,
+      "render_error": null,
+      "raw": "{\"trace_steps\": [{\"kind\": \"select\", \"description\": \"Identify the LTV ratio for each year.\", \"cites\": [{\"row\": 0, \"col_name\": \"Loan-to-value (LTV) ratio\", \"value\": 46}, {\"row\": 1, \"col_name\": \"Loan-to-value (LTV) ratio\", \"value\": 52.9}, {\"row\": 2, \"col_name\": \"Loan-to-value (LTV) ratio\", \"value\": 55.8}]}, {\"kind\": \"compare\",  \"description\": \"Compare the LTV ratios: 46, 52.9, and 55.8.\", \"cites\": [{\"row\": 0, \"col_name\": \"Loan-to-value (LTV) ratio\", \"value\": 46}, {\"row\": 1, \"col_name\": \"Loan-to-value (LTV) ratio\", \"value\": 52.9}, {\"row\": 2, \"col_name\": \"Loan-to-value (LTV) ratio\", \"value\": 55.8}]}, {\"kind\": \"conclude\", \"description\": \"The largest LTV ratio is 55.8 in 2017.\", \"cites\": [{\"row\": 2, \"col_name\": \"Loan-to-value (LTV) ratio\", \"value\": 55.8}, {\"row\": 2, \"col_name\": \"USDm\", \"value\": 2017}]}], \"final_answer\": {\"label\": \"2017\", \"rows\": [2], \"metrics\": []}, \"operation\": {\"type\": \"best_under_constraint\", \"target\": \"Loan-to-value (LTV) ratio\", \"target_dir\": \"higher\", \"constraint\": \"USDm\", \"op\": \"lt\", \"threshold\": 2017.0}}",
+      "op_present": true,
+      "whole_op": false,
+      "engine_ok": false,
+      "engine_err": false,
+      "model_ok": true,
+      "valid": false,
+      "grounded": false
+    },
+    {
+      "example_id": "tatqa_0030_cols_rank_models_verified",
+      "type": "rank_models",
+      "parsed": true,
+      "render_error": null,
+      "raw": "{\"trace_steps\": [{\"kind\": \"select\", \"description\": \"Identify the Total Other column and its values for each year.\", \"cites\": [{\"row\": 0, \"col_name\": \"Total Other\", \"value\": 89}, {\"row\": 1, \"col_name\": \"Total Other\", \"value\": 95}, {\"row\": 2, \"col_name\": \"Total Other\", \"value\": 82}]}, {\"kind\": \"compare\", \"description\": \"Compare the Total Other values across the three years: 89, 95, and 82.\", \"cites\": [{\"row\": 1, \"col_name\": \"Total Other\", \"value\": 95}, {\"row\": 0, \"col_name\": \"Total Other\", \"value\": 89}, {\"row\": 2, \"col_name\": \"Total Other\", \"value\": 82}]}, {\"kind\": \"conclude\", \"description\": \"The largest Total Other value is 95, which corresponds to the year 2018.\", \"cites\": [{\"row\": 1, \"col_name\": \"period\", \"value\": 2018}]}], \"final_answer\": {\"label\": \"2018\", \"rows\": [1], \"metrics\": []}, \"operation\": {\"type\": \"best_under_constraint\", \"target\": \"Total Other\", \"target_dir\": \"higher\", \"constraint\": \"period\", \"op\": \"lt\", \"threshold\": 95.0}}",
+      "op_present": true,
+      "whole_op": false,
+      "engine_ok": false,
+      "engine_err": false,
+      "model_ok": true,
+      "valid": false,
+      "grounded": false
+    },
+    {
+      "example_id": "tatqa_0036_cols_rank_models_verified",
+      "type": "rank_models",
+      "parsed": true,
+      "render_error": null,
+      "raw": "{\"trace_steps\": [{\"kind\": \"filter\", \"description\": \"Identify the service cost for each year.\", \"cites\": [{\"row\": 0, \"col_name\": \"Service cost\", \"value\": 56}, {\"row\": 1, \"col_name\": \"Service cost\", \"value\": 66}, {\"row\": 2, \"col_name\": \"Service cost\", \"value\": 63}]}, {\"kind\": \"compare\", \"description\": \"Compare the service costs: 56 (2019), 66 (2018), 63 (2017).\", \"cites\": [{\"row\": 0, \"col_name\": \"Service cost\", \"value\": 56}, {\"row\": 1, \"col_name\": \"Service cost\", \"value\": 66}, {\"row\": 2, \"col_name\": \"Service cost\", \"value\": 63}]}, {\"kind\": \"conclude\", \"description\": \"The lowest service cost is 56, which occurs in 2019.\", \"cites\": [{\"row\": 0, \"col_name\": \"category\", \"value\": 2019}, {\"row\": 0, \"col_name\": \"Service cost\", \"value\": 56}]}], \"final_answer\": {\"label\": \"2019\", \"rows\": [0], \"metrics\": []}, \"operation\": {\"type\": \"best_under_constraint\", \"target\": \"Service cost\", \"target_dir\": \"lower\", \"constraint\": \"category\", \"op\": \"lt\", \"threshold\": 66.0}}",
+      "op_present": true,
+      "whole_op": false,
+      "engine_ok": false,
+      "engine_err": false,
+      "model_ok": true,
+      "valid": false,
+      "grounded": false
+    },
+    {
+      "example_id": "tatqa_0126_cols_rank_models_verified",
+      "type": "rank_models",
+      "parsed": true,
+      "render_error": null,
+      "raw": "{\"trace_steps\": [{\"kind\": \"select\", \"description\": \"Identify the net income values for each year.\", \"cites\": [{\"row\": 0, \"col_name\": \"Net income\", \"value\": 24193}, {\"row\": 1, \"col_name\": \"Net income\", \"value\": 20402}, {\"row\": 2, \"col_name\": \"Net income\", \"value\": 14366}]}, {\"kind\": \"compare\", \"description\": \"Compare the net income values: 24193 (2019) is higher than 20402 (2018) and 14366 (2017).\", \"cites\": [{\"row\": 0, \"col_name\": \"Net income\", \"value\": 24193}, {\"row\": 1, \"col_name\": \"Net income\", \"value\": 20402}, {\"row\": 2, \"col_name\": \"Net income\", \"value\": 14366}]}, {\"kind\": \"conclude\", \"description\": \"December 27, 2019 has the highest net income of 24193.\", \"cites\": [{\"row\": 0, \"col_name\": \"Net income\", \"value\": 24193}]}], \"final_answer\": {\"label\": \"December 27, 2019\", \"rows\": [0], \"metrics\": []}, \"operation\": {\"type\": \"best_under_constraint\", \"target\": \"Net income\", \"target_dir\": \"higher\", \"constraint\": \"category\", \"op\": \"lt\", \"threshold\": 24193.0}}",
+      "op_present": true,
+      "whole_op": false,
+      "engine_ok": false,
+      "engine_err": false,
+      "model_ok": true,
+      "valid": false,
+      "grounded": true
+    },
+    {
+      "example_id": "tatqa_0134_cols_rank_models_verified",
+      "type": "rank_models",
+      "parsed": true,
+      "render_error": null,
+      "raw": "{\"trace_steps\": [{\"kind\": \"select\", \"description\": \"Identify the year and commodity contracts value for each row.\", \"cites\": [{\"row\": 0, \"col_name\": \"($ in millions)\", \"value\": 2019}, {\"row\": 0, \"col_name\": \"Commodity contracts\", \"value\": 45.4}]}, {\"kind\": \"select\", \"description\": \"Identify the year and commodity contracts value for the next row.\", \"cites\": [{\"row\": 1, \"col_name\": \"($ in millions)\", \"value\": 2018}, {\"row\": 1, \"col_name\": \"Commodity contracts\", \"value\": 41.4}]}, {\"kind\": \"select\", \"description\": \"Identify the year and commodity contracts value for the last row.\", \"cites\": [{\"row\": 2, \"col_name\": \"($ in millions)\", \"value\": 2017}, {\"row\": 2, \"col_name\": \"Commodity contracts\", \"value\": 9.4}]}, {\"kind\": \"compare\", \"description\": \"Compare the commodity contracts values: 45.4 (2019) > 41.4 (2018) > 9.4 (2017).\", \"cites\": [{\"row\": 0, \"col_name\": \"Commodity contracts\", \"value\": 45.4}, {\"row\": 1, \"col_name\": \"Commodity contracts\", \"value\": 41.4}, {\"row\": 2, \"col_name\": \"Commodity contracts\", \"value\": 9.4}]}, {\"kind\": \"conclude\", \"description\": \"The largest commodity contracts amount was in 2019.\", \"cites\": [{\"row\": 0, \"col_name\": \"($ in millions)\", \"value\": 2019}, {\"row\": 0, \"col_name\": \"Commodity contracts\", \"value\": 45.4}]}], \"final_answer\": {\"label\": \"2019\", \"rows\": [0], \"metrics\": []}, \"operation\": {\"type\": \"best_under_constraint\", \"target\": \"Commodity contracts\", \"target_dir\": \"higher\", \"constraint\": \"($ in millions)\", \"op\": \"lt\", \"threshold\": 45.4}}",
+      "op_present": true,
+      "whole_op": false,
+      "engine_ok": false,
+      "engine_err": false,
+      "model_ok": true,
+      "valid": false,
+      "grounded": false
+    },
+    {
+      "example_id": "tatqa_0147_cols_rank_models_verified",
+      "type": "rank_models",
+      "parsed": true,
+      "render_error": null,
+      "raw": "{\"trace_steps\": [{\"kind\": \"select\", \"description\": \"Identify the Interest cost values for each year.\", \"cites\": [{\"row\": 0, \"col_name\": \"Interest cost\", \"value\": 1308}, {\"row\": 1, \"col_name\": \"Interest cost\", \"value\": 1230}, {\"row\": 2, \"col_name\": \"Interest cost\", \"value\": 1086}]}, {\"kind\": \"compare\",  \"description\": \"Compare the Interest cost values: 1308 (2019) is the largest.\", \"cites\": [{\"row\": 0, \"col_name\": \"Interest cost\", \"value\": 1308}, {\"row\": 1, \"col_name\": \"Interest cost\", \"value\": 1230}]}, {\"kind\": \"conclude\", \"description\": \"The Interest cost was largest in the year 2019.\", \"cites\": [{\"row\": 0, \"col_name\": \"category\", \"value\": 2019}]}], \"final_answer\": {\"label\": \"2019\", \"rows\": [0], \"metrics\": []}, \"operation\": {\"type\": \"best_under_constraint\", \"target\": \"Interest cost\", \"target_dir\": \"higher\", \"constraint\": \"category\", \"op\": \"lt\", \"threshold\": 2019.0}}",
+      "op_present": true,
+      "whole_op": false,
+      "engine_ok": false,
+      "engine_err": false,
+      "model_ok": true,
+      "valid": false,
+      "grounded": false
+    },
+    {
+      "example_id": "tatqa_0165_cols_rank_models_verified",
+      "type": "rank_models",
+      "parsed": true,
+      "render_error": null,
+      "raw": "{\"trace_steps\": [{\"kind\": \"select\", \"description\": \"Identify the Communications Solutions values for each year.\", \"cites\": [{\"row\": 0, \"col_name\": \"Communications Solutions\", \"value\": 849}, {\"row\": 1, \"col_name\": \"Communications Solutions\", \"value\": 959}, {\"row\": 2, \"col_name\": \"Communications Solutions\", \"value\": 951}]}, {\"kind\": \"compare\", \"description\": \"Compare the Communications Solutions values across the years: 849 (2019), 959 (2018), and 951 (2017).\", \"cites\": [{\"row\": 1, \"col_name\": \"Communications Solutions\", \"value\": 959}, {\"row\": 2, \"col_name\": \"Communications Solutions\", \"value\": 951}]}, {\"kind\": \"conclude\", \"description\": \"The largest Communications Solutions value is 959 in 2018.\", \"cites\": [{\"row\": 1, \"col_name\": \"Communications Solutions\", \"value\": 959}]}], \"final_answer\": {\"label\": \"2018\", \"rows\": [1], \"metrics\": []}, \"operation\": {\"type\": \"best_under_constraint\", \"target\": \"Communications Solutions\", \"target_dir\": \"higher\", \"constraint\": \"category\", \"op\": \"lt\", \"threshold\": 2018.0}}",
+      "op_present": true,
+      "whole_op": false,
+      "engine_ok": false,
+      "engine_err": false,
+      "model_ok": true,
+      "valid": false,
+      "grounded": true
+    },
+    {
+      "example_id": "tatqa_0181_cols_rank_models_verified",
+      "type": "rank_models",
+      "parsed": true,
+      "render_error": null,
+      "raw": "{\"trace_steps\": [{\"kind\": \"select\", \"description\": \"Identify the number of shares granted during the period for each year.\", \"cites\": [{\"row\": 0, \"col_name\": \"Granted during the period\", \"value\": 1001.1}, {\"row\": 1, \"col_name\": \"Granted during the period\", \"value\": 907.3}, {\"row\": 2, \"col_name\": \"Granted during the period\", \"value\": 866.6}]}, {\"kind\": \"compare\", \"description\": \"Compare the granted shares among the years: 1001.1 (2019) > 907.3 (2018) > 866.6 (2017).\", \"cites\": [{\"row\": 0, \"col_name\": \"Granted during the period\", \"value\": 1001.1}, {\"row\": 1, \"col_name\": \"Granted during the period\", \"value\": 907.3}, {\"row\": 2, \"col_name\": \"Granted during the period\", \"value\": 866.6}]}, {\"kind\": \"conclude\", \"description\": \"The year with the most shares granted is 2019.\", \"cites\": [{\"row\": 0, \"col_name\": \"Granted during the period\", \"value\": 1001.1}]}], \"final_answer\": {\"label\": \"2019\", \"rows\": [0], \"metrics\": []}, \"operation\": {\"type\": \"best_under_constraint\", \"target\": \"Granted during the period\", \"target_dir\": \"higher\", \"constraint\": \"Number of shares (1,000)\", \"op\": \"lt\", \"threshold\": 1001.1}}",
+      "op_present": true,
+      "whole_op": false,
+      "engine_ok": false,
+      "engine_err": false,
+      "model_ok": true,
+      "valid": false,
+      "grounded": true
+    },
+    {
+      "example_id": "tatqa_0222_cols_rank_models_verified",
+      "type": "rank_models",
+      "parsed": true,
+      "render_error": null,
+      "raw": "{\"trace_steps\": [{\"kind\": \"filter\", \"description\": \"Check each year's Distribution value against the others.\", \"cites\": [{\"row\": 0, \"col_name\": \"Distribution\", \"value\": 136.4}, {\"row\": 1, \"col_name\": \"Distribution\", \"value\": 131.7}, {\"row\": 2, \"col_name\": \"Distribution\", \"value\": 118.7}]}, {\"kind\": \"compare\",  \"description\": \"2019 has the highest Distribution value of 136.4, which is greater than both 2018 (131.7) and 2017 (118.7).\", \"cites\": [{\"row\": 0, \"col_name\": \"Distribution\", \"value\": 136.4}, {\"row\": 1, \"col_name\": \"Distribution\", \"value\": 131.7}]}, {\"kind\": \"conclude\", \"description\": \"The year with the largest Distribution value is 2019.\", \"cites\": [{\"row\": 0, \"col_name\": \"Distribution\", \"value\": 136.4}]}], \"final_answer\": {\"label\": \"Year Ended June 30, 2019\", \"rows\": [0], \"metrics\": []}, \"operation\": {\"type\": \"best_under_constraint\", \"target\": \"Distribution\", \"target_dir\": \"higher\", \"constraint\": \"Year Ended June 30, 2019\", \"op\": \"lt\", \"threshold\": 136.4}}",
+      "op_present": true,
+      "whole_op": false,
+      "engine_ok": false,
+      "engine_err": true,
+      "model_ok": true,
+      "valid": false,
+      "grounded": false
+    },
+    {
+      "example_id": "tatqa_0272_cols_rank_models_verified",
+      "type": "rank_models",
+      "parsed": true,
+      "render_error": null,
+      "raw": "{\"trace_steps\": [{\"kind\": \"filter\", \"description\": \"Identify the year with the lowest diluted earnings per share.\", \"cites\": [{\"row\": 0, \"col_name\": \"Diluted earnings per share\", \"value\": -0.08}, {\"row\": 1, \"col_name\": \"Diluted earnings per share\", \"value\": -0.19}, {\"row\": 2, \"col_name\": \"Diluted earnings per share\", \"value\": 0.12}]}, {\"kind\": \"compare\", \"description\": \"Among the three years, -0.19 is the smallest value.\", \"cites\": [{\"row\": 1, \"col_name\": \"Diluted earnings per share\", \"value\": -0.19}]}, {\"kind\": \"conclude\", \"description\": \"The lowest diluted earnings per share occurs in 2018.\", \"cites\": [{\"row\": 1, \"col_name\": \"category\", \"value\": \"2018\"}]}], \"final_answer\": {\"label\": \"2018\", \"rows\": [1], \"metrics\": []}, \"operation\": {\"type\": \"best_under_constraint\", \"target\": \"Diluted earnings per share\", \"target_dir\": \"lower\", \"constraint\": \"category\", \"op\": \"lt\", \"threshold\": 0.12}}",
+      "op_present": true,
+      "whole_op": false,
+      "engine_ok": false,
+      "engine_err": false,
+      "model_ok": true,
+      "valid": false,
+      "grounded": true
+    }
+  ]
+}

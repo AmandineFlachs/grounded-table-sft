@@ -1,0 +1,21 @@
+{
+  "results": [
+    {
+      "label": "IN-DISTRIBUTION locked test",
+      "n": 254,
+      "engine": 243,
+      "model": 151,
+      "gated": 244,
+      "fires": 9
+    },
+    {
+      "label": "OUT-OF-DISTRIBUTION extremum anchor",
+      "n": 12,
+      "engine": 0,
+      "model": 12,
+      "gated": 12,
+      "fires": 12
+    }
+  ],
+  "note": "gate falls back to the model's own answer when the emitted op type's required question signal (threshold / trade-off language) is absent; do-no-harm safety gate; heuristic validated on a small OOD set."
+}
