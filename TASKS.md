@@ -40,7 +40,7 @@ for results.
 - [x] **Grounded traces by construction** - trace-grounded rate 71% → 97%.
 - [x] **Out-of-vocabulary safety gate** - falls back to the model when the operation isn't supported
   by the question, so the system is never worse than the model alone.
-- [x] **Demo, write-up, reproducibility pass** - `scripts/demo.py`, `docs/writeup.html`, and a
+- [x] **Demo, write-up, reproducibility pass** - `scripts/demo.py`, `docs/index.html`, and a
   fresh-clone CPU re-score path.
 
 ## Roadmap

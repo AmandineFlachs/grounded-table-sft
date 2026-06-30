@@ -11,12 +11,13 @@ through a deterministic engine that does the *arithmetic*.**
 > cells the engine actually read, lifting trace-groundedness **71.3% → 96.9%**.
 
 📄 **Read the full write-up** (problem → approach → results → validation → honest limits → live demo):
-[`docs/writeup.html`](docs/writeup.html) · **Results:** [`RESULTS.md`](RESULTS.md) · **ML methodology:**
-[`docs/methodology.html`](docs/methodology.html)
+**[amandineflachs.github.io/grounded-table-sft](https://amandineflachs.github.io/grounded-table-sft/)**
+· **Results:** [`RESULTS.md`](RESULTS.md) · **ML methodology:**
+[live](https://amandineflachs.github.io/grounded-table-sft/methodology.html)
 
-> ℹ️ The write-up and methodology are **HTML** - GitHub shows them as source, not rendered. To read
-> them: clone and open the files in a browser, or serve them with **GitHub Pages** (Settings → Pages →
-> deploy from branch, `/docs`) and link the published URL here.
+> ℹ️ The write-up and methodology are served via **GitHub Pages** from the `/docs` folder. The source
+> HTML lives in [`docs/`](docs/) - GitHub renders those files as source, so use the live links above (or
+> open the files locally in a browser).
 
 ![MIT License](https://img.shields.io/badge/License-MIT-green) ![Data: TAT-QA CC BY 4.0](https://img.shields.io/badge/Data-TAT--QA%20CC%20BY%204.0-blue) ![Built on a single RTX 3090](https://img.shields.io/badge/Train-QLoRA%20%C2%B7%20single%20RTX%203090-lightgrey)
 
@@ -105,7 +106,7 @@ python scripts/demo.py --list                       # every replayable example
 python scripts/demo.py --id <example_id>
 ```
 
-Then open [`docs/writeup.html`](docs/writeup.html) and [`results/demo/index.html`](results/demo/index.html) in a browser.
+Then open [`docs/index.html`](docs/index.html) and [`results/demo/index.html`](results/demo/index.html) in a browser.
 
 ## Reproduce the full pipeline
 
@@ -131,7 +132,7 @@ python scripts/anchor_blind.py build --n 36 --seed 0
 python scripts/anchor_blind.py score --answers results/anchor/answers.json
 ```
 
-Headline numbers in `docs/writeup.html` and `RESULTS.md` are sourced directly from the result JSONs in
+Headline numbers in `docs/index.html` and `RESULTS.md` are sourced directly from the result JSONs in
 [`results/`](results/) - re-running `build_writeup.py` regenerates the page from them.
 
 ## v0 core (synthetic, zero-dependency)
@@ -155,7 +156,7 @@ scripts/    build_dataset, freeze_splits, build_sft, train_sft, eval_executor, e
             eval_gate, eval_model, anchor_blind, demo, build_writeup, ... (full pipeline)
 data/       raw/tatqa (CC BY 4.0), processed/ (validated JSONL eval inputs)
 results/    locked-test metrics, gate + grounding re-scores, the independent anchor, demo page
-docs/       writeup.html (narrative), methodology.html (ML reference), training_env.md
+docs/       index.html (narrative write-up), methodology.html (ML reference), training_env.md
 tests/      validator unit tests
 ```
 

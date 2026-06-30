@@ -3,7 +3,7 @@
 A consolidated, honestly-bounded summary of what the project established. The ML methodology
 (data, training, executor, evaluation) is in [`docs/methodology.html`](docs/methodology.html); this is
 the synthesis. For a single reader-facing narrative (promotable, with a live demo embedded), see
-[`docs/writeup.html`](docs/writeup.html).
+[`docs/index.html`](docs/index.html).
 
 ## TL;DR
 

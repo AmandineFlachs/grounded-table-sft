@@ -1,4 +1,4 @@
-"""Build docs/writeup.html - the standalone, promotable project write-up (no GPU).
+"""Build docs/index.html - the standalone, promotable project write-up (no GPU).
 
 A reader-facing narrative (hook -> problem -> approach -> results -> "is it real?" -> honest limits
 -> demo -> reproduce), distinct from the lean ML methodology reference in docs/methodology.html.
@@ -23,7 +23,7 @@ from src.demo import DEMO_CARD_CSS, build_card, card_html   # noqa: E402
 from src.schema import Example                              # noqa: E402
 from src.splits import load_jsonl                            # noqa: E402
 
-OUT = ROOT / "docs" / "writeup.html"
+OUT = ROOT / "docs" / "index.html"
 TEST_RES = ROOT / "results" / "p3_4b_exec_TEST.json"
 GATE_RES = ROOT / "results" / "p3_4b_gate.json"
 GROUND_RES = ROOT / "results" / "p3_4b_grounded_constructed.json"
