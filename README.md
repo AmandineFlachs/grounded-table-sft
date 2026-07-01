@@ -137,22 +137,13 @@ python scripts/demo.py
 # independent in-distribution anchor (CPU + blind LLM annotation)
 python scripts/anchor_blind.py build --n 36 --seed 0
 python scripts/anchor_blind.py score --answers results/anchor/answers.json
+
+# sanity: the validator's own tests, incl. deliberately-broken examples that MUST fail
+pytest tests/
 ```
 
 Headline numbers in `docs/index.html` and `RESULTS.md` are sourced directly from the result JSONs in
 [`results/`](results/) - re-running `build_writeup.py` regenerates the page from them.
-
-## Synthetic data + validator (pure Python)
-
-A dependency-light way to see the data contract and the validator in action: a seeded synthetic table
-generator, the three task types, programmatic *grounded-by-construction* traces, the rule-based
-validator, and an eval harness - the fastest entry point into the codebase:
-
-```bash
-python scripts/build_dataset.py --n 40 --seed 0    # generate + validate every example
-python scripts/evaluate.py data/processed/dataset.v0_1_0.jsonl
-pytest tests/                                       # incl. deliberately-broken examples that MUST fail
-```
 
 ## Layout
 
