@@ -8,7 +8,8 @@ Financial and analytical tables are full of questions like *"which line item had
 while staying at or above 12.7 in 2018?"* A small model reads that correctly, then slips on the
 comparison - the kind of silent error that leaves an answer both wrong *and* unauditable. This project
 fixes both: the model emits a structured *operation*, a deterministic engine computes the answer, and
-the trace is grounded in the cells the engine actually read.
+the trace is grounded in the cells the engine actually read. The whole thing is small enough to **train
+locally on a single consumer GPU** (one RTX 3090), on public data.
 
 📄 **Full write-up** (problem → approach → results → honest limits → live demo):
 **[amandineflachs.github.io/grounded-table-sft](https://amandineflachs.github.io/grounded-table-sft/)**
@@ -98,10 +99,11 @@ the answer and verifies each cited cell. **1,266 validated examples**, a **leaka
 split** (dev 190 / locked test 254 / a separate 12-example out-of-distribution anchor), disjoint at id
 *and* content-hash level.
 
-## Quickstart (no GPU)
+## Try it (the demo needs no GPU)
 
-Replay held-out examples through the full production path (model *operation* → engine answer →
-engine-read evidence cells → safety gate) from **saved outputs** - no GPU, no API, no network:
+The model was trained locally on a single **RTX 3090** (QLoRA); to *inspect* the results you need none
+of that. This replays held-out examples through the full production path (model *operation* → engine
+answer → engine-read evidence cells → safety gate) from **saved outputs** - CPU only, no API, no network:
 
 ```bash
 python -m venv .venv && . .venv/bin/activate      # Windows: .\.venv\Scripts\Activate.ps1
