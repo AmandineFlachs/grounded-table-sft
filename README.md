@@ -142,12 +142,11 @@ python scripts/anchor_blind.py score --answers results/anchor/answers.json
 Headline numbers in `docs/index.html` and `RESULTS.md` are sourced directly from the result JSONs in
 [`results/`](results/) - re-running `build_writeup.py` regenerates the page from them.
 
-## v0 core (synthetic, zero-dependency)
+## v0 core (synthetic data + validator)
 
-The project began as a local-first slice with **no GPU, API, or network**: a seeded synthetic table
-generator, the three task types, programmatic *grounded-by-construction* traces, the rule-based
-validator, and an eval harness. It's still the fastest way to see the data contract and the validator
-in action:
+The project began as a small, pure-Python slice: a seeded synthetic table generator, the three task
+types, programmatic *grounded-by-construction* traces, the rule-based validator, and an eval harness.
+It's still the fastest way to see the data contract and the validator in action:
 
 ```bash
 python scripts/build_dataset.py --n 40 --seed 0    # generate + validate every example
