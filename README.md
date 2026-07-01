@@ -30,13 +30,17 @@ names, thresholds, directions) - and a small, deterministic, independently-teste
 answer **and** returns the exact cells it read, which become the trace's citations. A safety gate falls
 back to the model's own answer when the question doesn't actually support the emitted operation.
 
-<p align="center">
-  <img src="docs/assets/how-it-works.png" width="620"
-       alt="Two-stage pipeline. Comprehension (neural): a small model reads the question and emits a structured operation. Execution (symbolic, deterministic): the engine does the arithmetic, computing the Answer and returning the exact Grounded citations it read; a Safety gate falls back to the model's own answer when the operation is not supported. Both feed a verified answer plus grounded trace.">
-</p>
-
-<!-- Diagram source: docs/assets/how-it-works.mmd (Mermaid). Rendered to a PNG so it looks
-     consistent in GitHub light and dark mode; edit the .mmd and re-render to update. -->
+```mermaid
+flowchart LR
+    Q["Question + table"] --> M{{"Small model<br/>(comprehension only)"}}
+    M -->|"emits a structured<br/>operation"| E["Deterministic engine<br/>(does the arithmetic)"]
+    E -->|"computes"| A["Answer"]
+    E -->|"returns the cells it read"| G["Grounded citations"]
+    M -.->|"operation not supported<br/>by the question"| GATE["Safety gate"]
+    GATE -.->|"fall back to model's<br/>own answer"| A
+    A --> OUT(["Verified answer + grounded trace"])
+    G --> OUT
+```
 
 **Why this works:** error analysis showed the model's remaining mistakes were *arithmetic-execution*
 errors (flipped comparisons, fumbled dominance checks), not misreadings. So we stopped trusting its
