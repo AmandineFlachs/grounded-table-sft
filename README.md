@@ -1,23 +1,18 @@
 # Grounded Table Reasoning Traces
 
-**Teach a small, locally-trainable model to read text tables, answer constrained questions, and emit
-reasoning traces grounded in specific, verifiable cells - by routing the model's *comprehension*
-through a deterministic engine that does the *arithmetic*.**
+**Small language models understand table questions - they just can't do the arithmetic reliably. So let
+the model do the *understanding* and hand the *math* to deterministic code: answer accuracy jumps
+59% → 96% on a locked test, and every step cites the exact cells it used.**
 
-> **The finding:** small models comprehend table tasks well but can't reliably *execute* the
-> arithmetic. Letting the model emit a structured *operation* and having a deterministic engine compute
-> the answer lifts held-out accuracy **59.4% → 95.7%** on a locked test (254 tables, scored once) - a
-> result that generalizes and is independently corroborated. The same move grounds the trace in the
-> cells the engine actually read, lifting trace-groundedness **71.3% → 96.9%**.
+Financial and analytical tables are full of questions like *"which line item had the lowest 2019 value
+while staying at or above 12.7 in 2018?"* A small model reads that correctly, then slips on the
+comparison - the kind of silent error that leaves an answer both wrong *and* unauditable. This project
+fixes both: the model emits a structured *operation*, a deterministic engine computes the answer, and
+the trace is grounded in the cells the engine actually read.
 
-📄 **Read the full write-up** (problem → approach → results → validation → honest limits → live demo):
+📄 **Full write-up** (problem → approach → results → honest limits → live demo):
 **[amandineflachs.github.io/grounded-table-sft](https://amandineflachs.github.io/grounded-table-sft/)**
-· **Results:** [`RESULTS.md`](RESULTS.md) · **ML methodology:**
-[live](https://amandineflachs.github.io/grounded-table-sft/methodology.html)
-
-> ℹ️ The write-up and methodology are served via **GitHub Pages** from the `/docs` folder. The source
-> HTML lives in [`docs/`](docs/) - GitHub renders those files as source, so use the live links above (or
-> open the files locally in a browser).
+ · **[Results](RESULTS.md)** · **[ML methodology](https://amandineflachs.github.io/grounded-table-sft/methodology.html)**
 
 ![MIT License](https://img.shields.io/badge/License-MIT-green) ![Data: TAT-QA CC BY 4.0](https://img.shields.io/badge/Data-TAT--QA%20CC%20BY%204.0-blue) ![Built on a single RTX 3090](https://img.shields.io/badge/Train-QLoRA%20%C2%B7%20single%20RTX%203090-lightgrey)
 
@@ -29,13 +24,21 @@ Locked held-out test, **254 tables, scored once** (no peeking, no retries):
 
 | What we measured | Result | For comparison |
 |---|---|---|
-| **Right answers (engine)** | **95.7%** [92.4–97.6] | 59.4% when the model did the math itself |
+| **Right answers** | **95.7%** [92.4–97.6] | 59.4% when the model does the math itself |
 | **Trace citations that point to the right cells** | **96.9%** | 71.3% from the model's own citations |
-| Operation present / exact-match | 97.2% / 87.4% | |
-| By question type (winner / threshold / trade-off) | 97.6% / 96.6% / 92.9% | |
 
-Engine vs. the model's own arithmetic, head-to-head on the same items: **+93 / −1** (exact-McNemar
-p ≈ 10⁻²⁶). Dev and test numbers match almost exactly - the result generalizes.
+Head-to-head on the same items, the engine beats the model's own arithmetic **+93 / −1** (exact-McNemar
+p ≈ 10⁻²⁶). Dev and test numbers match almost exactly, and an independent anchor corroborates them - the
+result generalizes.
+
+<details><summary><b>More metrics</b></summary>
+
+| | Result |
+|---|---|
+| Operation present / whole-operation exact-match | 97.2% / 87.4% |
+| Accuracy by question type (winner / threshold / trade-off) | 97.6% / 96.6% / 92.9% |
+
+</details>
 
 ### Metrics by pipeline stage
 
@@ -71,6 +74,13 @@ flowchart TB
 **Why this works:** error analysis showed the model's remaining mistakes were *arithmetic-execution*
 errors (flipped comparisons, fumbled dominance checks), not misreadings. So we stopped trusting its
 arithmetic and its hand-typed citations, and constructed both from what the engine actually did.
+
+### A worked example
+
+A constrained question, the model's operation, and the engine's answer with the exact cells it read
+(highlighted) - all checked by the safety gate before the system commits to an answer:
+
+![Worked demo card: the question asks which period has the highest Legal reserve while keeping Cash dividends above a threshold. The table shows the two cited cells highlighted; the model's trace filters, compares, and concludes; the grounded evidence lists the exact cells the engine read; the safety gate passes, so the system returns the engine's answer (2019), which matches gold.](docs/assets/example.png)
 
 ## The task
 
