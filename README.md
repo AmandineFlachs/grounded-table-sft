@@ -30,35 +30,13 @@ names, thresholds, directions) - and a small, deterministic, independently-teste
 answer **and** returns the exact cells it read, which become the trace's citations. A safety gate falls
 back to the model's own answer when the question doesn't actually support the emitted operation.
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'lineColor':'#57606a','edgeLabelBackground':'#ffffff','fontSize':'15px'}}}%%
-flowchart TB
-    Q(["Question + table"]):::io --> M
-    subgraph COMP ["Comprehension · neural"]
-        direction TB
-        M["Small model<br/>reads the question"]:::model
-    end
-    subgraph EXEC ["Execution · symbolic, deterministic"]
-        direction TB
-        E["Engine does the arithmetic"]:::engine
-        E -->|"computes"| A["Answer"]:::out
-        E -->|"returns the cells it read"| G["Grounded citations"]:::out
-        GATE{"Safety gate"}:::gate
-        GATE -.->|"model's own answer"| A
-    end
-    M -->|"emits a structured operation"| E
-    M -.->|"operation not supported"| GATE
-    A --> OUT(["Verified answer + grounded trace"]):::io
-    G --> OUT
+<p align="center">
+  <img src="docs/assets/how-it-works.png" width="620"
+       alt="Two-stage pipeline. Comprehension (neural): a small model reads the question and emits a structured operation. Execution (symbolic, deterministic): the engine does the arithmetic, computing the Answer and returning the exact Grounded citations it read; a Safety gate falls back to the model's own answer when the operation is not supported. Both feed a verified answer plus grounded trace.">
+</p>
 
-    style COMP fill:#f6faff,stroke:#2f6db3,color:#0b3d73
-    style EXEC fill:#f5fdf8,stroke:#1a7f37,color:#0f5323
-    classDef io     fill:#eef1f5,stroke:#8b949e,color:#1c2128
-    classDef model  fill:#dbeafe,stroke:#2f6db3,color:#0b3d73,stroke-width:2px
-    classDef engine fill:#d4efdf,stroke:#1a7f37,color:#0f5323,stroke-width:2px
-    classDef out    fill:#eafaf0,stroke:#3aa35a,color:#0f5323
-    classDef gate   fill:#fff3cd,stroke:#b8860b,color:#6b4e00,stroke-width:2px
-```
+<!-- Diagram source: docs/assets/how-it-works.mmd (Mermaid). Rendered to a PNG so it looks
+     consistent in GitHub light and dark mode; edit the .mmd and re-render to update. -->
 
 **Why this works:** error analysis showed the model's remaining mistakes were *arithmetic-execution*
 errors (flipped comparisons, fumbled dominance checks), not misreadings. So we stopped trusting its
