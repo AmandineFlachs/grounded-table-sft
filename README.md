@@ -23,28 +23,6 @@ through a deterministic engine that does the *arithmetic*.**
 
 ---
 
-## How it works
-
-The model never does the arithmetic. It *comprehends* - emits a structured operation (op type, column
-names, thresholds, directions) - and a small, deterministic, independently-tested engine computes the
-answer **and** returns the exact cells it read, which become the trace's citations. A safety gate falls
-back to the model's own answer when the question doesn't actually support the emitted operation.
-
-```mermaid
-%%{init: {'flowchart': {'curve': 'linear'}}}%%
-flowchart TB
-    Q["Question + table"] --> M{{"Small model<br/>(comprehension only)"}}
-    M --> D{"Operation supported<br/>by the question?"}
-    D -->|"yes"| E["Deterministic engine does the<br/>arithmetic, cites the cells it read"]
-    D -->|"no"| F["Fall back to the<br/>model's own answer"]
-    E --> OUT(["Verified answer + grounded trace"])
-    F --> OUT
-```
-
-**Why this works:** error analysis showed the model's remaining mistakes were *arithmetic-execution*
-errors (flipped comparisons, fumbled dominance checks), not misreadings. So we stopped trusting its
-arithmetic and its hand-typed citations, and constructed both from what the engine actually did.
-
 ## The result
 
 Locked held-out test, **254 tables, scored once** (no peeking, no retries):
@@ -71,6 +49,28 @@ the engine lifts them the rest of the way too.
 > an unseen task type it confidently computes the wrong answer (0/12 on a held-out `extremum` slice,
 > where the model's *own* answer was 100%). The safety gate catches exactly this and makes the system
 > **never worse than the model alone**. See [`RESULTS.md`](RESULTS.md) for the full, caveated picture.
+
+## How it works
+
+The model never does the arithmetic. It *comprehends* - emits a structured operation (op type, column
+names, thresholds, directions) - and a small, deterministic, independently-tested engine computes the
+answer **and** returns the exact cells it read, which become the trace's citations. A safety gate falls
+back to the model's own answer when the question doesn't actually support the emitted operation.
+
+```mermaid
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
+flowchart TB
+    Q["Question + table"] --> M{{"Small model<br/>(comprehension only)"}}
+    M --> D{"Operation supported<br/>by the question?"}
+    D -->|"yes"| E["Deterministic engine does the<br/>arithmetic, cites the cells it read"]
+    D -->|"no"| F["Fall back to the<br/>model's own answer"]
+    E --> OUT(["Verified answer + grounded trace"])
+    F --> OUT
+```
+
+**Why this works:** error analysis showed the model's remaining mistakes were *arithmetic-execution*
+errors (flipped comparisons, fumbled dominance checks), not misreadings. So we stopped trusting its
+arithmetic and its hand-typed citations, and constructed both from what the engine actually did.
 
 ## The task
 
