@@ -60,17 +60,13 @@ Locked held-out test, **254 tables, scored once** (no peeking, no retries):
 Engine vs. the model's own arithmetic, head-to-head on the same items: **+93 / −1** (exact-McNemar
 p ≈ 10⁻²⁶). Dev and test numbers match almost exactly - the result generalizes.
 
-### Right-answer accuracy, stage by stage
+### Metrics by pipeline stage
 
-Flat through every model-only stage (more size and training barely move it), then the engine closes it:
+Answer accuracy is flat through every model-only stage (more size and training barely move it), then
+the deterministic executor closes it (52% → 96%). Valid-trace and cell-grounding climb with fine-tuning;
+the engine lifts them the rest of the way too.
 
-| Stage | Right answer | |
-|---|---:|:---|
-| Untrained Qwen3-1.7B | 18% | `███` |
-| + fine-tuned (1.7B) | 20% | `███` |
-| Untrained Qwen3-4B | 27% | `████` |
-| + fine-tuned (4B) | 52% | `████████` |
-| **+ deterministic engine** | **96%** | `███████████████` |
+![Grouped bar chart of valid-trace, cell-grounding, and answer-accuracy across the six pipeline stages (Qwen3-1.7B zero-shot / SFT, Qwen3-4B zero-shot / SFT, + symbolic executor, + grounded citations). Answer accuracy stays flat across model scale and fine-tuning, then the deterministic executor lifts it from 52% to 96%.](docs/assets/progression.png)
 
 > **The catch (honestly bounded):** the engine only helps *inside its trained operation vocabulary*. On
 > an unseen task type it confidently computes the wrong answer (0/12 on a held-out `extremum` slice,
@@ -144,7 +140,7 @@ in action:
 
 ```bash
 python scripts/build_dataset.py --n 40 --seed 0    # generate + validate every example
-python scripts/evaluate.py data/processed/dataset.v001.jsonl
+python scripts/evaluate.py data/processed/dataset.v0_1_0.jsonl
 pytest tests/                                       # incl. deliberately-broken examples that MUST fail
 ```
 

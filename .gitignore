@@ -28,10 +28,9 @@ results/*
 # Model weights (large; retrain via docs/training_env.md)
 models/
 
-# Local promo / social-media visuals + their generators - staging for sharing, not part of the public repo
+# Local promo / social-media visuals + their generator - staging for sharing, not part of the public repo
 promo/
 scripts/make_promo.py
-scripts/make_progression_fig.py
 
 # Personal scheduling helpers (machine-specific absolute paths; keep local, don't publish)
 scripts/register_seed_today.ps1
