@@ -33,13 +33,11 @@ back to the model's own answer when the question doesn't actually support the em
 ```mermaid
 flowchart TB
     Q["Question + table"] --> M{{"Small model<br/>(comprehension only)"}}
-    M -->|"emits a structured<br/>operation"| E["Deterministic engine<br/>(does the arithmetic)"]
-    E -->|"computes"| A["Answer"]
-    E -->|"returns the cells it read"| G["Grounded citations"]
-    M -.->|"operation not supported<br/>by the question"| GATE["Safety gate"]
-    GATE -.->|"fall back to model's<br/>own answer"| A
-    A --> OUT(["Verified answer + grounded trace"])
-    G --> OUT
+    M --> D{"Operation supported<br/>by the question?"}
+    D -->|"yes"| E["Deterministic engine does the<br/>arithmetic, cites the cells it read"]
+    D -->|"no"| F["Fall back to the<br/>model's own answer"]
+    E --> OUT(["Verified answer + grounded trace"])
+    F --> OUT
 ```
 
 **Why this works:** error analysis showed the model's remaining mistakes were *arithmetic-execution*
