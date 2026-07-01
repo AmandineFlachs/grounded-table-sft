@@ -31,6 +31,7 @@ answer **and** returns the exact cells it read, which become the trace's citatio
 back to the model's own answer when the question doesn't actually support the emitted operation.
 
 ```mermaid
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
 flowchart TB
     Q["Question + table"] --> M{{"Small model<br/>(comprehension only)"}}
     M --> D{"Operation supported<br/>by the question?"}
