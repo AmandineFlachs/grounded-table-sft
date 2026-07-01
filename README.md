@@ -31,7 +31,7 @@ answer **and** returns the exact cells it read, which become the trace's citatio
 back to the model's own answer when the question doesn't actually support the emitted operation.
 
 ```mermaid
-flowchart LR
+flowchart TB
     Q["Question + table"] --> M{{"Small model<br/>(comprehension only)"}}
     M -->|"emits a structured<br/>operation"| E["Deterministic engine<br/>(does the arithmetic)"]
     E -->|"computes"| A["Answer"]
