@@ -32,14 +32,14 @@ back to the model's own answer when the question doesn't actually support the em
 
 ```mermaid
 %%{init: {'theme':'base', 'themeVariables': {'lineColor':'#57606a','edgeLabelBackground':'#ffffff'}}}%%
-flowchart LR
-    Q["Question + table"]:::input --> M{{"Small model<br/>comprehension only"}}:::model
-    M -->|"emits a structured<br/>operation"| E["Deterministic engine<br/>does the arithmetic"]:::engine
-    E -->|"computes"| A["Answer"]:::answer
-    E -->|"returns the exact<br/>cells it read"| G["Grounded citations"]:::answer
+flowchart TB
+    Q["Question + table"]:::input --> M{{"Small model<br/>(comprehension only)"}}:::model
+    M -->|"emits a structured operation"| E["Deterministic engine<br/>(does the arithmetic)"]:::engine
     M -.->|"operation not supported<br/>by the question"| GATE{"Safety gate"}:::gate
+    E -->|"computes"| A["Answer"]:::answer
+    E -->|"returns the exact cells it read"| G["Grounded citations"]:::answer
     GATE -.->|"fall back to the<br/>model's own answer"| A
-    A --> OUT(["Verified answer<br/>+ grounded trace"]):::output
+    A --> OUT(["Verified answer + grounded trace"]):::output
     G --> OUT
 
     classDef input  fill:#eef1f5,stroke:#8b949e,color:#1c2128
