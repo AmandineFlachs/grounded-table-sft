@@ -31,23 +31,33 @@ answer **and** returns the exact cells it read, which become the trace's citatio
 back to the model's own answer when the question doesn't actually support the emitted operation.
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'lineColor':'#57606a','edgeLabelBackground':'#ffffff'}}}%%
+%%{init: {'theme':'base','themeVariables':{'lineColor':'#57606a','edgeLabelBackground':'#ffffff','fontSize':'15px'}}}%%
 flowchart TB
-    Q["Question + table"]:::input --> M{{"Small model<br/>(comprehension only)"}}:::model
-    M -->|"emits a structured operation"| E["Deterministic engine<br/>(does the arithmetic)"]:::engine
-    M -.->|"operation not supported<br/>by the question"| GATE{"Safety gate"}:::gate
-    E -->|"computes"| A["Answer"]:::answer
-    E -->|"returns the exact cells it read"| G["Grounded citations"]:::answer
-    GATE -.->|"fall back to the<br/>model's own answer"| A
-    A --> OUT(["Verified answer + grounded trace"]):::output
+    Q(["Question + table"]):::io --> M
+    subgraph COMP ["Comprehension · neural"]
+        direction TB
+        M["Small model<br/>reads the question"]:::model
+    end
+    subgraph EXEC ["Execution · symbolic, deterministic"]
+        direction TB
+        E["Engine does the arithmetic"]:::engine
+        E -->|"computes"| A["Answer"]:::out
+        E -->|"returns the cells it read"| G["Grounded citations"]:::out
+        GATE{"Safety gate"}:::gate
+        GATE -.->|"model's own answer"| A
+    end
+    M -->|"emits a structured operation"| E
+    M -.->|"operation not supported"| GATE
+    A --> OUT(["Verified answer + grounded trace"]):::io
     G --> OUT
 
-    classDef input  fill:#eef1f5,stroke:#8b949e,color:#1c2128
+    style COMP fill:#f6faff,stroke:#2f6db3,color:#0b3d73
+    style EXEC fill:#f5fdf8,stroke:#1a7f37,color:#0f5323
+    classDef io     fill:#eef1f5,stroke:#8b949e,color:#1c2128
     classDef model  fill:#dbeafe,stroke:#2f6db3,color:#0b3d73,stroke-width:2px
     classDef engine fill:#d4efdf,stroke:#1a7f37,color:#0f5323,stroke-width:2px
-    classDef answer fill:#eafaf0,stroke:#3aa35a,color:#0f5323
+    classDef out    fill:#eafaf0,stroke:#3aa35a,color:#0f5323
     classDef gate   fill:#fff3cd,stroke:#b8860b,color:#6b4e00,stroke-width:2px
-    classDef output fill:#1a7f37,stroke:#0f5323,color:#ffffff,stroke-width:2px
 ```
 
 **Why this works:** error analysis showed the model's remaining mistakes were *arithmetic-execution*
