@@ -48,21 +48,20 @@ h1{font-family:var(--font-display);font-size:clamp(34px,5.2vw,58px);font-weight:
 /* nav */
 nav.tabs{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);
   backdrop-filter:blur(9px) saturate(180%);-webkit-backdrop-filter:blur(9px) saturate(180%);border-bottom:1px solid var(--line)}
-nav.tabs .row{max-width:920px;margin:0 auto;padding:0 34px;display:flex;gap:26px;overflow-x:auto}
-.tab{appearance:none;border:none;background:none;cursor:pointer;font-family:var(--font-mono);font-size:12.5px;font-weight:500;
-  letter-spacing:.03em;text-transform:uppercase;padding:15px 2px;color:var(--muted);border-bottom:2px solid transparent;
+nav.tabs .row{max-width:920px;margin:0 auto;padding:5px 34px;display:flex;flex-wrap:wrap;gap:2px 22px;align-items:center;justify-content:center}
+.tab{appearance:none;border:none;background:none;cursor:pointer;font-family:var(--font-mono);font-size:12px;font-weight:500;
+  letter-spacing:.02em;text-transform:uppercase;padding:9px 2px;color:var(--muted);border-bottom:2px solid transparent;
   transition:color .15s,border-color .15s;white-space:nowrap;display:inline-flex;align-items:center}
-.tab .num{margin-right:8px;font-weight:600;color:var(--muted)}
+.tab .num{margin-right:6px;font-weight:600;color:var(--muted)}
 .tab:hover{color:var(--ink)}
 .tab.active{color:var(--ink);border-bottom-color:var(--accent)}
 .tab.active .num{color:var(--accent)}
 
 /* layout */
+html{scroll-behavior:smooth}
 main{max-width:920px;margin:0 auto;padding:0 34px 110px}
-.panel{display:none}
-.panel.active{display:block;animation:fadeUp .2s ease}
-section{margin:0 0 44px}
-.panel>section:first-child{margin-top:52px}
+section{margin:0 0 44px;scroll-margin-top:92px}
+main>section:first-child{margin-top:80px}
 h2,h3,h4{margin:0}
 .sec-h{font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
   display:flex;align-items:center;gap:12px;margin:0 0 22px;padding-bottom:14px;border-bottom:1px solid var(--ink)}
@@ -150,9 +149,9 @@ footer .note b,footer .note code{color:var(--ink);background:none;padding:0}
 @media(max-width:600px){
   header.hero .inner{padding:22px 20px 34px}
   .masthead{margin-bottom:28px}
-  nav.tabs .row{padding:0 20px;gap:18px}
+  nav.tabs .row{padding:5px 20px;gap:2px 16px}
   main{padding:0 20px 80px}
-  .panel>section:first-child{margin-top:36px}
+  main>section:first-child{margin-top:52px}
   footer .inner{padding:26px 20px}
   .bar{grid-template-columns:92px 1fr 46px;gap:10px}
 }
@@ -216,13 +215,17 @@ footer .note b,footer .note code{color:var(--ink);background:none;padding:0}
 
 <main>
 
-<nav class="toc">
-  <a href="#problem"><b>1</b>Problem</a> · <a href="#data"><b>2</b>Data &amp; task</a> ·
-  <a href="#schema"><b>3</b>Schema</a> · <a href="#train"><b>4</b>Model &amp; training</a> ·
-  <a href="#executor"><b>5</b>Executor</a> · <a href="#grounding"><b>6</b>Grounding &amp; gate</a> ·
-  <a href="#eval"><b>7</b>Evaluation</a> · <a href="#results"><b>8</b>Results</a> ·
-  <a href="#limits"><b>9</b>Limitations</a>
-</nav>
+<nav class="tabs"><div class="row">
+  <button class="tab active" data-t="problem"><span class="num">1</span>Problem</button>
+  <button class="tab" data-t="data"><span class="num">2</span>Data &amp; task</button>
+  <button class="tab" data-t="schema"><span class="num">3</span>Schema</button>
+  <button class="tab" data-t="train"><span class="num">4</span>Model &amp; training</button>
+  <button class="tab" data-t="executor"><span class="num">5</span>Executor</button>
+  <button class="tab" data-t="grounding"><span class="num">6</span>Grounding &amp; gate</button>
+  <button class="tab" data-t="eval"><span class="num">7</span>Evaluation</button>
+  <button class="tab" data-t="results"><span class="num">8</span>Results</button>
+  <button class="tab" data-t="limits"><span class="num">9</span>Limitations</button>
+</div></nav>
 
 <section id="problem">
   <h2 class="sec-h">1. Problem &amp; approach</h2>
@@ -411,4 +414,35 @@ footer .note b,footer .note code{color:var(--ink);background:none;padding:0}
   history.</p>
 </div></footer>
 
+<script>
+(function(){
+  var tabs=Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function setActive(id){
+    tabs.forEach(function(t){t.classList.toggle('active',t.dataset.t===id)});
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var s=document.getElementById(t.dataset.t);
+      if(!s) return;
+      setActive(t.dataset.t);
+      s.scrollIntoView({behavior:'smooth',block:'start'});
+      if(history.replaceState) history.replaceState(null,'','#'+t.dataset.t);
+    });
+  });
+  // scrollspy — highlight the button of the section currently in view
+  var sections=tabs.map(function(t){return document.getElementById(t.dataset.t)}).filter(Boolean);
+  if('IntersectionObserver' in window){
+    var visible={};
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){visible[e.target.id]=e.isIntersecting?e.intersectionRatio:0});
+      var best=null,bestR=0;
+      sections.forEach(function(s){if((visible[s.id]||0)>bestR){bestR=visible[s.id];best=s.id}});
+      if(best) setActive(best);
+    },{rootMargin:'-92px 0px -55% 0px',threshold:[0,.25,.5,1]});
+    sections.forEach(function(s){io.observe(s)});
+  }
+  var h=location.hash.replace('#','');
+  if(h&&document.getElementById(h)){setActive(h);document.getElementById(h).scrollIntoView({block:'start'});}
+})();
+</script>
 </body></html>
