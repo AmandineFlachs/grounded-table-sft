@@ -24,9 +24,10 @@ from PIL import Image, ImageChops
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from src.demo import DEMO_CARD_CSS, build_card, card_html   # noqa: E402
+from src.demo import build_card, card_html                  # noqa: E402
 from src.schema import Example                              # noqa: E402
 from src.splits import load_jsonl                            # noqa: E402
+from src.theme import brand_font_link, theme_css            # noqa: E402
 
 OUT = ROOT / "docs" / "assets" / "example.png"
 # the featured in-distribution success (same card the write-up embeds)
@@ -59,11 +60,11 @@ def _card_page() -> str:
         if eid == EXAMPLE_ID:
             card = build_card(ex, det[EXAMPLE_ID]["raw"])
             card["ood"] = False
-            return ("<!doctype html><meta charset=utf-8><style>"
-                    ":root{--line:#dfe4ea;--muted:#6b7686}"
-                    "body{margin:0;padding:24px;background:#fff;"
-                    "font:15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;width:720px}"
-                    f"{DEMO_CARD_CSS}</style>{card_html(card)}")
+            return ("<!doctype html><meta charset=utf-8>"
+                    f'<link href="{brand_font_link("personal")}" rel="stylesheet">'
+                    f"<style>{theme_css('personal')}"
+                    "body{width:720px;padding:24px;background:#fff}</style>"
+                    f"{card_html(card)}")
     raise SystemExit(f"example not found: {EXAMPLE_ID}")
 
 

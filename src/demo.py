@@ -209,29 +209,7 @@ def card_html(card: dict) -> str:
   </section>"""
 
 
-DEMO_CARD_CSS = """
-.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:0 0 22px;
-  box-shadow:0 1px 2px rgba(0,0,0,.03)}
-.card header{display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
-.card .tag{font-size:11px;font-weight:700;letter-spacing:.04em;padding:2px 8px;border-radius:999px;color:#fff;background:#495057}
-.card .tag.ood{background:#c92a2a}.card .tag.indist{background:#1864ab}
-.card .type{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--muted)}
-.card .eid{margin-left:auto;font-size:11px;color:#aeb6c0;font-family:ui-monospace,monospace}
-.card .q{font-weight:600;margin:.2em 0 14px}
-.card table{border-collapse:collapse;font-size:13px;width:100%;margin:0}
-.card th,.card td{border:1px solid var(--line);padding:5px 9px;text-align:right}
-.card th:first-child,.card td:first-child{text-align:left}
-.card thead th{background:#f1f3f5;font-weight:600}
-.card td.hl{background:#fff3bf;box-shadow:inset 0 0 0 2px #f2cb05;font-weight:700}
-.card .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:16px 0}
-@media(max-width:640px){.card .cols{grid-template-columns:1fr}}
-.card h4{margin:0 0 6px;font-size:13px}.card h4 small{color:var(--muted);font-weight:400}
-.card ol.trace,.card ul.ev{margin:0;padding-left:18px}.card ol.trace li,.card ul.ev li{margin:.2em 0}
-.card .kind{display:inline-block;font:11px ui-monospace,monospace;background:#eef1f4;color:#495057;
-  padding:0 6px;border-radius:4px;margin-right:4px}
-.card table.ans{margin-top:6px}.card table.ans td:first-child{color:var(--muted);width:130px;text-align:left}
-.card table.ans td{border:none;border-top:1px solid var(--line);text-align:left;padding:6px 9px}
-.card tr.sys td{background:#f1f8f2}.card tr.gate td{font-size:13px}
-.card .badge{font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;color:#fff;margin-right:6px}
-.card .badge.pass{background:#2b8a3e}.card .badge.fire{background:#c92a2a}
-"""
+# The demo-card CSS lives in src/theme.py now (single CSS home for the whole design system).
+# Re-exported here so existing importers keep working: scripts/build_writeup.py, scripts/demo.py,
+# scripts/make_promo.py, scripts/plot_example_card.py all do `from src.demo import DEMO_CARD_CSS`.
+from .theme import DEMO_CARD_CSS  # noqa: F401,E402

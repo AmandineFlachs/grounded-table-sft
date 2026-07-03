@@ -1,16 +1,55 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Grounded Table Reasoning — demo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>:root{
+"""Canonical "Field Notes" design system - one source of truth for all generated pages.
+
+Three layers (see docs/index.html for the reference rendering):
+
+  1. SKELETON_CSS  - brand-agnostic structure/components; EVERY color & font is a CSS var.
+  2. brand token sets (PERSONAL_TOKENS / MANAGESPACE_TOKENS) - the :root variable *values*.
+  3. per-project overrides - a small dict passed to theme_css() to tweak accent/font on top.
+
+Generators call `theme_css(brand, overrides)` and inline the result in a <style>, plus
+`brand_font_link(brand)` for the <head> font <link>. `write_css_file()` emits a linkable,
+vendorable stylesheet (the artifact copied into other repos).
+
+To add a project accent without touching the kit:
+    theme_css("personal", overrides={"accent": "#1a7f37"})
+To switch a work repo to the ManageSpace brand:
+    theme_css("managespace")
+"""
+from __future__ import annotations
+
+from pathlib import Path
+
+# --------------------------------------------------------------------------- #
+# layer 2 - brand token sets (values only; each is a self-contained :root block)
+# --------------------------------------------------------------------------- #
+PERSONAL_TOKENS = """:root{
   --bg:#f7f6f5;--surface:#ffffff;--panel:#efedeb;--panel2:#e3e0dd;
   --ink:#1d1b19;--muted:#6c675f;--line:#e3e0dc;--accent:#c81e1e;--accent-ink:#ffffff;
   --font:'Hanken Grotesk',system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --font-display:var(--font);--font-body:var(--font);--font-mono:var(--font);
-  --hatch:repeating-linear-gradient(135deg,var(--accent) 0 2px,transparent 2px 6px)}
+  --hatch:repeating-linear-gradient(135deg,var(--accent) 0 2px,transparent 2px 6px)}"""
 
+# PLACEHOLDER - gold/black/white/sharp pulled from manage.space. Refine against the
+# official ManageSpace brand book (exact hex, fonts, logo) before shipping work repos.
+MANAGESPACE_TOKENS = """:root{
+  --bg:#ffffff;--surface:#ffffff;--panel:#f5f2ea;--panel2:#ece5d5;
+  --ink:#111111;--muted:#555555;--line:#e4ddcd;--accent:#d4af37;--accent-ink:#111111;
+  --font:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-display:var(--font);--font-body:var(--font);--font-mono:var(--font);
+  --hatch:repeating-linear-gradient(135deg,var(--accent) 0 2px,transparent 2px 6px)}"""
+
+BRANDS = {"personal": PERSONAL_TOKENS, "managespace": MANAGESPACE_TOKENS}
+
+# Google Fonts <link> href each brand's --font needs.
+BRAND_FONTS = {
+    "personal": "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap",
+    "managespace": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+}
+
+# --------------------------------------------------------------------------- #
+# layer 1 - skeleton (brand-agnostic; all colors/fonts resolve through var(--...))
+# --------------------------------------------------------------------------- #
+SKELETON_CSS = """
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.65;
   -webkit-font-smoothing:antialiased}
@@ -155,8 +194,13 @@ footer .note b,footer .note code{color:var(--ink);background:none;padding:0}
   footer .inner{padding:26px 20px}
   .bar{grid-template-columns:92px 1fr 46px;gap:10px}
 }
+"""
 
-
+# --------------------------------------------------------------------------- #
+# demo-card component (moved here from src/demo.py so there is ONE css home;
+# src/demo.py re-exports it for its existing importers).
+# --------------------------------------------------------------------------- #
+DEMO_CARD_CSS = """
 .card{background:var(--surface,#fff);border:1px solid var(--line);padding:22px 23px;margin:22px 0}
 .card header{display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
 .card .tag{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.08em;padding:3px 9px;color:#fff;background:var(--ink)}
@@ -182,97 +226,31 @@ footer .note b,footer .note code{color:var(--ink);background:none;padding:0}
 .card tr.sys td{background:color-mix(in srgb,var(--accent) 7%,transparent)}.card tr.gate td{font-size:13px}
 .card .badge{display:inline-block;font-family:var(--font-mono);font-size:10px;font-weight:600;padding:1px 7px;color:#fff;margin-right:6px}
 .card .badge.pass{background:#2b8a3e}.card .badge.fire{background:var(--accent)}
-</style></head>
-<body>
-<div class="topbar"></div>
-<header class="hero"><div class="inner"><div class="head">
-  <h1>Grounded Table Reasoning — demo</h1>
-  <p class="subtitle">Each card replays a held-out example through the system: the model emits an
-  <i>operation</i> (its comprehension); a deterministic engine computes the answer and returns the
-  exact cells it read (<b>highlighted</b> — citations grounded by construction); a safety gate falls
-  back to the model’s own answer when the question doesn’t support the emitted operation. No model
-  is called here — these are saved locked-test outputs, re-assembled on CPU.</p>
-</div></div></header>
-<main>
+"""
 
-  <section class=card>
-    <header><span class="tag indist">in-dist</span>
-      <span class=type>best_under_constraint</span>
-      <span class=eid>tatqa_0036_cols_best_under_constraint_normal</span></header>
-    <p class=q>Which period has the highest Legal reserve while keeping Cash dividends of at least 8.34063e+06?</p>
-    <table><thead><tr><th>category</th><th>Legal reserve</th><th>Special reserve</th><th>Cash dividends</th></tr></thead><tbody><tr><td>Appropriation of earnings (in thousand NT dollars) Appropriation of earnings (in thousand NT dollars) 2018</td><td>707299</td><td>14513940</td><td>6916105</td></tr><tr><td>2019</td><td class="hl">963947</td><td>-3491626</td><td class="hl">9765155</td></tr><tr><td>Cash dividend per share (NT dollars) 2018</td><td></td><td></td><td>0.58</td></tr><tr><td>2019_1</td><td></td><td></td><td>0.75</td></tr></tbody></table>
-    <div class=cols>
-      <div><h4>Model trace <small>(model-authored prose)</small></h4><ol class=trace><li><span class=kind>filter</span> Keep only rows where Cash dividends is at least 8.34063e+06.</li><li><span class=kind>compare</span> Row 1 has the highest Legal reserve (963947) among qualifying rows.</li><li><span class=kind>conclude</span> 2019 has the highest Legal reserve while keeping Cash dividends of at least 8.34063e+06.</li></ol></div>
-      <div><h4>Grounded evidence <small>(cells the engine read, by construction)</small></h4>
-           <ul class=ev><li><code>Legal reserve</code>[row 1] = <b>963947</b></li><li><code>Cash dividends</code>[row 1] = <b>9765155</b></li></ul></div>
-    </div>
-    <table class=ans>
-      <tr><td>Engine answer</td><td>2019  (rows [1])</td></tr>
-      <tr><td>Model’s own</td><td>2019  (rows [1])</td></tr>
-      <tr class=gate><td>Gate</td><td><span class="badge pass">GATE PASS</span> op supported by the question → trust the engine</td></tr>
-      <tr class=sys><td>System answer</td><td><b>2019  (rows [1])</b> <small>[engine]</small></td></tr>
-      <tr><td>Gold</td><td>2019  (rows [1])</td></tr>
-    </table>
-  </section>
-  <section class=card>
-    <header><span class="tag indist">in-dist</span>
-      <span class=type>tradeoff_summary</span>
-      <span class=eid>tatqa_0036_cols_tradeoff_summary_normal</span></header>
-    <p class=q>Among these periods, which are Pareto-optimal when maximizing both Legal reserve and Special reserve?</p>
-    <table><thead><tr><th>category</th><th>Legal reserve</th><th>Special reserve</th><th>Cash dividends</th></tr></thead><tbody><tr><td>Appropriation of earnings (in thousand NT dollars) Appropriation of earnings (in thousand NT dollars) 2018</td><td class="hl">707299</td><td class="hl">14513940</td><td>6916105</td></tr><tr><td>2019</td><td class="hl">963947</td><td class="hl">-3491626</td><td>9765155</td></tr><tr><td>Cash dividend per share (NT dollars) 2018</td><td></td><td></td><td>0.58</td></tr><tr><td>2019_1</td><td></td><td></td><td>0.75</td></tr></tbody></table>
-    <div class=cols>
-      <div><h4>Model trace <small>(model-authored prose)</small></h4><ol class=trace><li><span class=kind>filter</span> Extract the two metrics to maximize: Legal reserve and Special reserve.</li><li><span class=kind>filter</span> Row 0 has the highest Special reserve (14513940), so no other row can dominate it on that metric.</li><li><span class=kind>filter</span> Row 1 has a lower Special reserve (-3491626), so it is dominated by row 0 on Special reserve.</li><li><span class=kind>filter</span> Row 2 has no Special reserve value, so it cannot dominate row 0 on that metric.</li><li><span class=kind>filter</span> Row 3 has no Special reserve value, so it cannot dominate row 0 on that metric.</li><li><span class=kind>conclude</span> Only row 0 is not dominated by any other row on both metrics, so it is the sole Pareto-optimal period.</li></ol></div>
-      <div><h4>Grounded evidence <small>(cells the engine read, by construction)</small></h4>
-           <ul class=ev><li><code>Legal reserve</code>[row 0] = <b>707299</b></li><li><code>Special reserve</code>[row 0] = <b>14513940</b></li><li><code>Legal reserve</code>[row 1] = <b>963947</b></li><li><code>Special reserve</code>[row 1] = <b>-3491626</b></li></ul></div>
-    </div>
-    <table class=ans>
-      <tr><td>Engine answer</td><td>Legal reserve vs Special reserve  (rows [0,1])</td></tr>
-      <tr><td>Model’s own</td><td>Legal reserve vs Special reserve  (rows [0])</td></tr>
-      <tr class=gate><td>Gate</td><td><span class="badge pass">GATE PASS</span> op supported by the question → trust the engine</td></tr>
-      <tr class=sys><td>System answer</td><td><b>Legal reserve vs Special reserve  (rows [0,1])</b> <small>[engine]</small></td></tr>
-      <tr><td>Gold</td><td>Legal reserve vs Special reserve  (rows [0,1])</td></tr>
-    </table>
-  </section>
-  <section class=card>
-    <header><span class="tag indist">in-dist</span>
-      <span class=type>threshold_filter</span>
-      <span class=eid>tatqa_0055_rows_threshold_filter_near_threshold</span></header>
-    <p class=q>Which line items have value in 2018 of at least -17264 and value in 2019 of at least 62311? Exclude any total or subtotal rows.</p>
-    <table><thead><tr><th>category</th><th>2019</th><th>2018</th></tr></thead><tbody><tr><td>Billed</td><td class="hl">127406</td><td class="hl">156948</td></tr><tr><td>Unbilled</td><td></td><td>242877</td></tr><tr><td>Allowance for doubtful accounts</td><td>-1392</td><td>-1324</td></tr><tr><td>Total accounts receivable</td><td>126014</td><td>398501</td></tr><tr><td>Less estimated amounts not currently due</td><td></td><td>-6134</td></tr><tr><td>Current accounts receivable</td><td class="hl">126014</td><td class="hl">392367</td></tr></tbody></table>
-    <div class=cols>
-      <div><h4>Model trace <small>(model-authored prose)</small></h4><ol class=trace><li><span class=kind>filter</span> Exclude total/subtotal rows: &#x27;Total accounts receivable&#x27; and &#x27;Less estimated amounts not currently due&#x27; are excluded.</li><li><span class=kind>filter</span> Check &#x27;Billed&#x27; row: 2018 is 156948 (≥ -17264) and 2019 is 127406 (≥ 62311).</li><li><span class=kind>filter</span> Check &#x27;Allowance for doubtful accounts&#x27; row: 2018 is -1324 (≥ -17264) but 2019 is -1392 (not ≥ 62311).</li><li><span class=kind>filter</span> Check &#x27;Current accounts receivable&#x27; row: 2018 is 392367 (≥ -17264) and 2019 is 126014 (≥ 62311).</li><li><span class=kind>conclude</span> The qualifying line items are &#x27;Billed&#x27; and &#x27;Current accounts receivable&#x27; with both metrics satisfying the constraints.</li></ol></div>
-      <div><h4>Grounded evidence <small>(cells the engine read, by construction)</small></h4>
-           <ul class=ev><li><code>2018</code>[row 0] = <b>156948</b></li><li><code>2019</code>[row 0] = <b>127406</b></li><li><code>2018</code>[row 5] = <b>392367</b></li><li><code>2019</code>[row 5] = <b>126014</b></li></ul></div>
-    </div>
-    <table class=ans>
-      <tr><td>Engine answer</td><td>Billed, Current accounts receivable  (rows [0,5])</td></tr>
-      <tr><td>Model’s own</td><td>Billed, Current accounts receivable  (rows [0,5])</td></tr>
-      <tr class=gate><td>Gate</td><td><span class="badge pass">GATE PASS</span> op supported by the question → trust the engine</td></tr>
-      <tr class=sys><td>System answer</td><td><b>Billed, Current accounts receivable  (rows [0,5])</b> <small>[engine]</small></td></tr>
-      <tr><td>Gold</td><td>Billed, Current accounts receivable  (rows [0,5])</td></tr>
-    </table>
-  </section>
-  <section class=card>
-    <header><span class="tag ood">OOD</span>
-      <span class=type>rank_models</span>
-      <span class=eid>tatqa_0000_cols_rank_models_verified</span></header>
-    <p class=q>In which year is the amount of total sales the largest?</p>
-    <table><thead><tr><th>category</th><th>Fixed Price</th><th>Other</th><th>Total sales</th></tr></thead><tbody><tr><td class="hl">2019</td><td>1452.4</td><td>44.1</td><td class="hl">1496.5</td></tr><tr><td>2018</td><td>1146.2</td><td>56.7</td><td class="hl">1202.9</td></tr><tr><td>2017</td><td>1036.9</td><td>70.8</td><td class="hl">1107.7</td></tr></tbody></table>
-    <div class=cols>
-      <div><h4>Model trace <small>(model-authored prose)</small></h4><ol class=trace><li><span class=kind>select</span> Identify the total sales for each year.</li><li><span class=kind>compare</span> Compare the total sales values: 1496.5 &gt; 1202.9 &gt; 1107.7.</li><li><span class=kind>conclude</span> The largest total sales is in the year 2019.</li></ol></div>
-      <div><h4>Grounded evidence <small>(cells the engine read, by construction)</small></h4>
-           <ul class=ev><li><code>category</code>[row 0] = <b>2019</b></li><li><code>category</code>[row 1] = <b>2018</b></li><li><code>category</code>[row 2] = <b>2017</b></li></ul></div>
-    </div>
-    <table class=ans>
-      <tr><td>Engine answer</td><td>none  (rows [])</td></tr>
-      <tr><td>Model’s own</td><td>2019  (rows [0])</td></tr>
-      <tr class=gate><td>Gate</td><td><span class="badge fire">GATE FIRED</span> op not supported by the question → fall back to the model’s own answer</td></tr>
-      <tr class=sys><td>System answer</td><td><b>2019  (rows [0])</b> <small>[model]</small></td></tr>
-      <tr><td>Gold</td><td>2019  (rows [0])</td></tr>
-    </table>
-  </section>
-</main>
-<footer><div class="inner"><p class="note">Generated by <code>scripts/demo.py</code> from saved
-outputs (<code>results/p3_4b_exec_TEST.json</code>, <code>…_verified.json</code>). See
-<code>RESULTS.md</code> for the held-out numbers.</p></div></footer>
-</body></html>
+
+# --------------------------------------------------------------------------- #
+# layer 3 + assembly
+# --------------------------------------------------------------------------- #
+def _overrides_block(overrides: dict | None) -> str:
+    """Turn {'accent': '#1a7f37', ...} into a trailing :root{} that wins over the brand."""
+    if not overrides:
+        return ""
+    decls = ";".join(f"--{k}:{v}" for k, v in overrides.items())
+    return f":root{{{decls}}}"
+
+
+def theme_css(brand: str = "personal", overrides: dict | None = None) -> str:
+    """Full stylesheet string to inline in a <style>: brand tokens + overrides + skeleton + cards."""
+    tokens = BRANDS.get(brand, PERSONAL_TOKENS)
+    return "\n".join(x for x in (tokens, _overrides_block(overrides), SKELETON_CSS, DEMO_CARD_CSS) if x)
+
+
+def brand_font_link(brand: str = "personal") -> str:
+    """<link> href for the brand's web font (put in <head>)."""
+    return BRAND_FONTS.get(brand, BRAND_FONTS["personal"])
+
+
+def write_css_file(path, brand: str = "personal", overrides: dict | None = None) -> None:
+    """Emit a physical, linkable/vendorable stylesheet (the artifact copied into other repos)."""
+    Path(path).write_text(theme_css(brand, overrides), encoding="utf-8")
